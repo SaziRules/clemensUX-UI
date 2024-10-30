@@ -8,20 +8,20 @@ const ContactForm = () => {
     <div className='flex flex-col lg:flex-row h-auto lg:h-[430px] lg:p-5 gap-5 lg:gap-0'>
       <div className='flex-1 items-center justify-center content-center p-5 bg-gradient-to-l from-sky-500 to-indigo-500 mx-[-2rem] sm:mx-[-2rem] lg:mx-0'>
         <h1 className='text-center text-white text-xl sm:text-2xl lg:text-[35px] mx-auto font-sans leading-6 pt-4 sm:pt-7 lg:leading-8 lg:w-[550px] pb-4 lg:pb-7 font-medium'>
-          We're here for you, feel free to contact us
+          We are here for you, feel free to contact us
         </h1>
         <div className='text-center w-full max-w-[500px] space-y-2 items-center mx-auto justify-center pb-7 px-4 sm:px-0'>
           <div className='flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2 mb-2 justify-center'>
-            <input 
-              type="text" 
-              className="w-full sm:flex-1 rounded-md bg-white px-5 py-2 font-thin text-sm focus:outline-none" 
-              placeholder="Your name"
-            />
-            <input 
-              type="email" 
-              className="w-full sm:flex-1 rounded-md bg-white px-5 py-2 font-thin text-sm focus:outline-none" 
-              placeholder="Your email"
-            />
+          <input 
+  type="text" 
+  className="w-full sm:flex-1 rounded-full bg-white px-5 py-2 font-thin text-sm focus:outline-none" 
+  placeholder="Enter your name"
+/>
+<input 
+  type="email" 
+  className="w-full sm:flex-1 rounded-full bg-white px-5 py-2 font-thin text-sm focus:outline-none" 
+  placeholder="Enter your email"
+/>
           </div>
           <div className='flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2 mb-2 justify-center'>
             <input 

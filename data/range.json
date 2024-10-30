@@ -1,0 +1,31 @@
+[
+    {
+        "id": "1",
+        "image": "https://thepitchdot.co.za//assets/pro.png",
+        "title": "Professional Range",
+        "description": "Comfort and protection for consumer incontinence."
+    },
+
+    {
+        "id": "2",
+        "image": "https://thepitchdot.co.za//assets/consumer.png",
+        "title": "Consumer Range",
+        "description": "Comfort and protection for consumer incontinence."
+    },
+
+    {
+        "id": "3",
+        "image": "https://thepitchdot.co.za/assets/accesories.png",
+        "title": "Accessories",
+        "description": "The latest absorbency technology to keep you dry, day and night."
+    },
+    
+    {
+        "id": "4",
+        "image": "https://thepitchdot.co.za//assets/buy.png",
+        "title": "Where to buy",
+        "description": "You can find Clemens™ products in-store at popular select retail stores."
+    }
+   
+
+]

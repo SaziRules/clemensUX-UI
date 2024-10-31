@@ -1,7 +1,27 @@
-import React from 'react';
+'use client'
+
+import React, { useState} from 'react';
 import Image from 'next/image';
 import productsData from '@/json/products';
 import HardProducts from '@/components/HardProducts';
+
+function Accordion({ title, children }) {
+  const [isOpen, setIsOpen] = React.useState(false);
+
+  return (
+    <div className="border-b border-[#2C2E74]">
+      <div className="flex items-center justify-between px-4 py-3 text-[#2C2E74] font-bold cursor-pointer" onClick={() => setIsOpen(!isOpen)}>
+        <span>{title}</span>
+        {isOpen ? <span className='text-2xl font-light'>-</span> : <span className='text-2xl font-light'>+</span>}
+      </div>
+      {isOpen && (
+        <div className="px-4 py-2 text-[#2C2E74] text-xs">
+          {children}
+        </div>
+      )}
+    </div>
+  );
+}
 
 export default function ProductPage({ productId }) {
   console.log('productId:', productId);
@@ -27,31 +47,50 @@ export default function ProductPage({ productId }) {
         </div>
         <div className="flex-1 items-start sm:items-center sm:justify-start text-left sm:pl-8 lg:ml-[-80px] md:pl-0 sm:pr-8">
           <h1 className='font-bold text-2xl sm:text-3xl md:text-5xl text-[#2C2E74] mb-3'>{product.name}</h1>
-          <p className='text-[#2C2E74] md:pr-8 mb-4'>{product.description}</p>
+          <p className='text-[#2C2E74]  mb-4'>{product.description}</p>
           <p>{product.intro}</p>
           <div className="flex gap-2 pt-3 pb-5">
             {product.size.map((size, index) => (
               <p key={index} className="w-[35px] h-[35px] border border-[#2C2E74] rounded-full text-[#2C2E74] text-xs content-center text-center hover:bg-[#2C2E74] hover:text-white transition duration-200 ease-out cursor-pointer">{size}</p>
             ))}
           </div>
-          <div>
-            <h3 className='text-2xl font-bold text-[#2C2E74]'>Product Features</h3>
-            <ul className="list-disc pl-4 pt-2">
+          
+          <div  className='pt-2 pb-6'>
+          <Accordion title="Size Guide">
+          <ul className="list-disc pl-4 ">
+              {product.sizeGuide.map((guide, index) => (
+              <li key={index} className="text-[#2C2E74] text-xs mb-2">{guide}</li>
+             ))}
+          </ul>
+          </Accordion>
+
+          <Accordion title="Product Composition">
+          <ul className="list-disc pl-4 ">
               {product.features.map((feature, index) => (
               <li key={index} className="text-[#2C2E74] text-xs mb-2">{feature}</li>
              ))}
           </ul>
+          </Accordion>
+
+          <Accordion title="Units Per Pack">
+          <ul className="list-disc pl-4 ">
+              {product.units.map((unit, index) => (
+              <li key={index} className="text-[#2C2E74] text-xs mb-2">{unit}</li>
+             ))}
+          </ul>
+          </Accordion>
           </div>
+
           <div className='flex gap-x-2 pt-4'>
           <button className="py-2 px-6 text-white bg-[#2C2E74] rounded-md hover:bg-[#1C1E40] transition duration-200 ease-out">Buy Now</button>
-          <button className="py-2 px-6 text-[#2C2E74] border-[1px] border-[#2C2E74] bg-[#fff] rounded-md hover:bg-[#2C2E74] hover:text-white transition duration-200 ease-out">Learn More</button>
+          <button className="py-2 px-6 text-[#2C2E74] border-[1px] border-[#2C2E74] bg-[#fff] rounded-md hover:bg-[#2C2E74] hover:text-white transition duration-200 ease-out">Keep Looking</button>
           </div>
           
         </div>
       </section>
       <hr className="h-px my-8 bg-gray-100 border-[0] dark:bg-gray-100"></hr>
       <section className=" pt-[5%]">
-        <h3 className='md:pl-10 pl-3 pb-4 text-4xl text-[#2C2E74] font-bold'>You may also like</h3>
+        <h3 className='md:pl-10 pl-3 pb-4 text-2xl text-[#2C2E74] font-bold'>You may also like</h3>
         <HardProducts />
       </section>
     </main>

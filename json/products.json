@@ -1,23 +1,26 @@
 [
     
   {
-    "Id": 3,
-    "image": "/wash-cloths.svg",
-    "name": "Clemens™ Washcloths",
-    "slug": "clemens-wash-cloths",
-    "summary": "Contains aloe vera extract and vitamin E for skin healing and moisturisation.",
-    "description": "It’s so much easier to keep yourself or your loved one clean and fresh with Clemens™ Disposable Washcloths. Suitable for children and adults, these extra large wipes make changing and cleaning so much more convenient as no water is needed. Cleaner skin – less skin irritation.",
-    "size": ["L", "M", "S", "XS"],
-    "features": 
-    [ 
-      "Anatomically-shaped for a secure fit", 
-      "Elasticated cuffs for protection against leakage", 
-      "Super absorbent core to ensure optimum dryness", 
-      "Elasticated waist band for added comfort", 
-      "Wetness indicator",
-      "Re-fastenable flex hook Velcro® tapes for continual readjustment of slip"
-    ]
-    },
+      "Id": 3,
+      "image": "/wash-cloths.svg",
+      "name": "Clemens™ Washcloths",
+      "slug": "clemens-wash-cloths",
+      "summary": "Contains aloe vera extract and vitamin E for skin healing and moisturisation.",
+      "description": "It’s so much easier to keep yourself or your loved one clean and fresh with Clemens™ Disposable Washcloths. Suitable for children and adults, these extra large wipes make changing and cleaning so much more convenient as no water is needed. Cleaner skin – less skin irritation.",
+      "size": ["XL", "L", "M", "S", "XS"],
+      "features": 
+      [ 
+        "Contains aloe vera extract and vitamin E for skin healing and moisturisation", 
+        "Gentle on the skin to avoid irritation", 
+        "Hypoallergenic"
+      ],
+      "sizeGuide": [
+        "25 X 25 CM"
+      ],
+      "units": [
+        "46 Units"
+      ]
+      },
   
   {
     "Id": 2,

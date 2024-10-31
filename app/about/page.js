@@ -1,7 +1,7 @@
 import React from 'react'
 import Features from '@/components/Features'
-import ProductSlider from '@/components/ProductSlider'
 import Subscriber from '@/components/Subscriber'
+import HardProducts from '@/components/HardProducts'
 export default function About() {
   
   return (
@@ -33,7 +33,7 @@ export default function About() {
 </section>
 
     <section className='mb-[8%]'>
-      <ProductSlider />
+      <HardProducts />
     </section>
 
     <section className='mb-[10%]'>

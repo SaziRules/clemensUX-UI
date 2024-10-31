@@ -1,0 +1,128 @@
+[
+    
+  {
+    "Id": 3,
+    "image": "/wash-cloths.svg",
+    "name": "Clemens™ Washcloths",
+    "slug": "clemens-wash-cloths",
+    "summary": "Contains aloe vera extract and vitamin E for skin healing and moisturisation.",
+    "description": "It’s so much easier to keep yourself or your loved one clean and fresh with Clemens™ Disposable Washcloths. Suitable for children and adults, these extra large wipes make changing and cleaning so much more convenient as no water is needed. Cleaner skin – less skin irritation.",
+    "size": ["L", "M", "S", "XS"],
+    "features": 
+    [ 
+      "Anatomically-shaped for a secure fit", 
+      "Elasticated cuffs for protection against leakage", 
+      "Super absorbent core to ensure optimum dryness", 
+      "Elasticated waist band for added comfort", 
+      "Wetness indicator",
+      "Re-fastenable flex hook Velcro® tapes for continual readjustment of slip"
+    ]
+    },
+  
+  {
+    "Id": 2,
+    "image": "/uni-pants.svg",
+    "name": "Clemens™ Unisex Pants",
+    "slug": "clemens-unisex-pants",
+    "summary":"Discreet protection for moderate incontinence, every day all day.",
+    "description": "Clemens unisex protection pants combine the latest technologies in a soft, comfortable and easy to use product that supports an active lifestyle.  Fully elasticated for a close yet comfortable fit.  Clemens unisex protection pants are designed to replace regular underwear, while remaining discreet under clothing.  Suitable for moderate levels of incontinence. ",
+    "size": [ "XL", "L", "M", "S", "XS"],
+    "features": 
+  [ 
+    "Anatomically-shaped for a secure fit", 
+    "Elasticated cuffs for protection against leakage", 
+    "Super absorbent core to ensure optimum dryness", 
+    "Elasticated waist band for added comfort", 
+    "Wetness indicator",
+    "Re-fastenable flex hook Velcro® tapes for continual readjustment of slip"
+  ]
+},
+
+  {
+      "Id": 1,
+      "image": "/plus-slips.svg",
+      "name": "Clemens™ Plus Slips",
+      "slug": "clemens-plus-slips",
+      "summary": "Comfort and protection for heavy incontinence.",
+      "description": "If you or your loved one are immobile or under 24-hour care with moderate to severe incontinence, Clemens™ Plus Slips will  give you leak-free confidence.  Plus Slips are designed for individuals who experience severe levels of incontinence and are semi-mobile or immobile.",
+      "size": [ "XL", "L", "M", "S", "XS"],
+      "features": 
+      [ 
+        "Anatomically-shaped for a secure fit", 
+        "Elasticated cuffs for protection against leakage", 
+        "Super absorbent core to ensure optimum dryness", 
+        "Elasticated waist band for added comfort", 
+        "Wetness indicator",
+        "Re-fastenable flex hook Velcro® tapes for continual readjustment of slip"
+      ],
+      "rating": "/rating.svg"
+      
+    },
+
+      {
+        "Id": 4,
+        "image": "/disp-pants.svg",
+        "name": "Disposable Underpad",
+        "slug": "clemens-underpad",
+        "summary": "Contains aloe vera extract and vitamin E for skin healing and moisturisation.",
+        "description": "It’s easy to keep beds and bedding clean and dry with ClemensTM Disposable Underpads. The underpads also ensure that you or your loved one stay dry, which helps to prevent skin irritation. Liquid is quickly locked away with new embossing technology and  the waterproof backing sheet ensures that the underpad stays in place, protecting your bedding and mattress.",
+        "size": ["L", "M", "S", "XS"],
+        "features": 
+      [ 
+        "Anatomically-shaped for a secure fit", 
+        "Elasticated cuffs for protection against leakage", 
+        "Super absorbent core to ensure optimum dryness", 
+        "Elasticated waist band for added comfort", 
+        "Wetness indicator",
+        "Re-fastenable flex hook Velcro® tapes for continual readjustment of slip"
+      ]
+        },
+
+        {
+          "Id": 5,
+          "image": "/plus-slips.svg",
+          "name": "Clemens™ Ultra Slips",
+          "slug": "clemens-ultra-slips",
+          "summary": "Comfort and protection for heavy incontinence.",
+          "description": "If you or your loved one are immobile or under 24-hour care with moderate to severe incontinence, Clemens™ Ultra Slips will  give you leak-free confidence. These extra absorbent, diaper-style slips are great for overnight use as they offer up to 12 hours of protection. This means less changes and more freedom.",
+          "size": ["L", "M", "S", "XS"]
+          },
+
+          {
+            "Id": 6,
+            "image": "uni-pads.svg",
+            "name": "Clemens™ Unisex Pads",
+            "slug": "clemens-unisex-pads",
+            "summary": "Superior comfort and protection for severe to very severe incontinence.",
+            "description": "The Clemens™ Unisex Pads range is designed for light bladder weakness and offers quick and efficient absorption for optimal dryness and comfort. They are designed to be worn comfortably and discreetly under normal clothing, with an adhesive strip to hold the pad in place.",
+            "size": ["L", "M", "S", "XS"],
+            "features": 
+      [ 
+        "Anatomically-shaped for a secure fit", 
+        "Elasticated cuffs for protection against leakage", 
+        "Super absorbent core to ensure optimum dryness", 
+        "Elasticated waist band for added comfort", 
+        "Wetness indicator",
+        "Re-fastenable flex hook Velcro® tapes for continual readjustment of slip"
+      ]
+            },
+
+        {
+            "Id": 7,
+            "image": "/femi-pants.svg",
+            "name": "Clemens™ Feminine Pants",
+            "slug": "clemens-feminine-pants",
+            "summary": "Secure and discreet protection for moderate incontinence.",
+            "description": "Clemens Feminine protection pants are 40% thinner than Clemens unisex protection pants.  Designed for discreet, comfortable and easy-to use  protection for active women suffering from moderate incontinence.",
+            "size": ["L", "M", "S", "XS"],
+            "features": 
+      [ 
+        "Anatomically-shaped for a secure fit", 
+        "Elasticated cuffs for protection against leakage", 
+        "Super absorbent core to ensure optimum dryness", 
+        "Elasticated waist band for added comfort", 
+        "Wetness indicator",
+        "Re-fastenable flex hook Velcro® tapes for continual readjustment of slip"
+      ]
+            }
+  ]

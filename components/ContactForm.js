@@ -14,12 +14,12 @@ const ContactForm = () => {
           <div className='flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-2 mb-2 justify-center'>
           <input 
   type="text" 
-  className="w-full sm:flex-1 rounded-full bg-white px-5 py-2 font-thin text-sm focus:outline-none" 
+  className="w-full sm:flex-1 rounded-md bg-white px-5 py-2 font-thin text-sm focus:outline-none" 
   placeholder="Enter your name"
 />
 <input 
   type="email" 
-  className="w-full sm:flex-1 rounded-full bg-white px-5 py-2 font-thin text-sm focus:outline-none" 
+  className="w-full sm:flex-1 rounded-md bg-white px-5 py-2 font-thin text-sm focus:outline-none" 
   placeholder="Enter your email"
 />
           </div>

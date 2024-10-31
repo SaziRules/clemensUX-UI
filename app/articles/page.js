@@ -1,5 +1,5 @@
 import React from 'react'
-import Articles from "@/components/Articles";
+import StaticBlog from '@/components/StaticBlog';
 
 export default function Blog() {
   return (
@@ -7,7 +7,7 @@ export default function Blog() {
       <main className="max-w-7xl mx-[auto] px-8 sm:px-16 md:px-0">
         <section className="pt-[7%]">
           <div>
-            <Articles />
+            <StaticBlog />
             </div>     
         </section>
         </main>

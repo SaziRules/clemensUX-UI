@@ -3,6 +3,7 @@
   {
       "Id": 3,
       "image": "/wash-cloths.svg",
+      "mainImage": "/wash-cloths-main.svg",
       "name": "Clemens™ Washcloths",
       "slug": "clemens-wash-cloths",
       "summary": "Contains aloe vera extract and vitamin E for skin healing and moisturisation.",

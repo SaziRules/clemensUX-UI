@@ -24,6 +24,7 @@ function Accordion({ title, children }) {
   );
 }
 
+
 export default function ProductPage({ productId }) {
   console.log('productId:', productId);
   console.log('productsData:', productsData);

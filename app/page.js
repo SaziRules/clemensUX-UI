@@ -7,6 +7,8 @@ import Doctor from "@/components/Doctor";
 import Subscriber from "@/components/Subscriber";
 import HardProducts from "@/components/HardProducts";
 import StaticBlog from "@/components/StaticBlog";
+import Articles from "@/components/Articles";
+import HardPosts from "@/components/HardPosts";
 
 
 export default function Home() {
@@ -44,7 +46,7 @@ export default function Home() {
         <div className="flex items-center justify-center pb-[5%]">
               <Image src={BlogHeading} alt="Heading" />
             </div>
-            <StaticBlog />
+            <HardPosts />
         </section>
         <section className="pt-7 pb-14">
           <Subscriber />

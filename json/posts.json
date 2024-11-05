@@ -1,0 +1,71 @@
+[
+    
+    {
+        "id": 1,
+        "image": "/article-1.svg",
+        "mainImage": "/wash-cloths-main.svg",
+        "title": "Symptoms and types of bladder weakness",
+        "slug": "symptoms-and-types-of-bladder-weakness",
+        "excerpt": "Bladder weakness is a common problem. It occurs more often as people get older",
+        "body": "It’s so much easier to keep yourself or your loved one clean and fresh with Clemens™ Disposable Washcloths. Suitable for children and adults, these extra large wipes make changing and cleaning so much more convenient as no water is needed. Cleaner skin – less skin irritation.",
+        "author": "Clemens",
+        "features": 
+        [ 
+          "Contains aloe vera extract and vitamin E for skin healing and moisturisation", 
+          "Gentle on the skin to avoid irritation", 
+          "Hypoallergenic"
+        ]
+        },
+
+        {
+            "id": 2,
+            "image": "/article-4.svg",
+            "mainImage": "/wash-cloths-main.svg",
+            "title": "Managing incontinence and staying healthy",
+            "slug": "managing-incontinence-and-staying-healthy",
+            "excerpt": "Bladder weakness can be caused by everyday habits, underlying medical conditions.",
+            "body": "It’s so much easier to keep yourself or your loved one clean and fresh with Clemens™ Disposable Washcloths. Suitable for children and adults, these extra large wipes make changing and cleaning so much more convenient as no water is needed. Cleaner skin – less skin irritation.",
+            "author": "Clemens",
+            "features": 
+            [ 
+              "Contains aloe vera extract and vitamin E for skin healing and moisturisation", 
+              "Gentle on the skin to avoid irritation", 
+              "Hypoallergenic"
+            ]
+            },
+
+            {
+                "id": 3,
+                "image": "/article-3.svg",
+                "mainImage": "/wash-cloths-main.svg",
+                "title": "Embracing life’s changes with Clemens™",
+                "slug": "embracing-life-changes-with-clemens",
+                "excerpt": "Living with incontinence can be challenging, but it doesn’t mean giving up.",
+                "body": "It’s so much easier to keep yourself or your loved one clean and fresh with Clemens™ Disposable Washcloths. Suitable for children and adults, these extra large wipes make changing and cleaning so much more convenient as no water is needed. Cleaner skin – less skin irritation.",
+                "author": "Clemens",
+                "features": 
+                [ 
+                  "Contains aloe vera extract and vitamin E for skin healing and moisturisation", 
+                  "Gentle on the skin to avoid irritation", 
+                  "Hypoallergenic"
+                ]
+                },    
+
+        {
+            "id": 4,
+            "image": "/article-2.svg",
+            "mainImage": "/wash-cloths-main.svg",
+            "title": "Can bladder weakness be treated?",
+            "slug": "can-bladder-weakness-be-treated",
+            "excerpt": "Living with incontinence can be challenging, but it does not mean giving up on...",
+            "body": "It’s so much easier to keep yourself or your loved one clean and fresh with Clemens™ Disposable Washcloths. Suitable for children and adults, these extra large wipes make changing and cleaning so much more convenient as no water is needed. Cleaner skin – less skin irritation.",
+            "author": "Clemens",
+            "features": 
+            [ 
+              "Contains aloe vera extract and vitamin E for skin healing and moisturisation", 
+              "Gentle on the skin to avoid irritation", 
+              "Hypoallergenic"
+            ]
+            }
+    
+    ]

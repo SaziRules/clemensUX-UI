@@ -11,7 +11,7 @@ const HardPosts = ({ posts }) => {
         {postsData.map((post) => (
           <div key={post.id} className='cursor-pointer hover:scale-105 transition transform duration-300 ease-out flex-shrink-0 w-[300px]'>
             <div className='relative h-[210px] w-[full] mb-4'>
-              <Link href={`/post/${post.slug}`}>
+              <Link href={`/posts/${post.slug}`}>
                 <Image
                   src={post.image}
                   alt='Product Image'

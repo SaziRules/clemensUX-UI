@@ -46,11 +46,11 @@ export default function PostPage({ params }) {
   );
 }
 
-export const dynamicParams = async () => {
+export async function dynamicParams() {
   const posts = await fetch('https://your-api-endpoint/posts');
   const data = await posts.json();
 
   return data.map((post) => ({
     params: { slug: post.slug },
   }));
-};
+}

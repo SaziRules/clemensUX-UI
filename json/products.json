@@ -26,6 +26,7 @@
   {
     "Id": 2,
     "image": "/uni-pants.svg",
+    "mainImage": "/uni-pants-main.svg",
     "name": "Clemens™ Unisex Pants",
     "slug": "clemens-unisex-pants",
     "summary":"Discreet protection for moderate incontinence, every day all day.",
@@ -39,12 +40,19 @@
     "Elasticated waist band for added comfort", 
     "Wetness indicator",
     "Re-fastenable flex hook Velcro® tapes for continual readjustment of slip"
+  ],
+  "sizeGuide": [
+    "25 X 25 CM"
+  ],
+  "units": [
+    "46 Units"
   ]
 },
 
   {
       "Id": 1,
       "image": "/plus-slips.svg",
+      "mainImage": "/plus-slips-main.svg",
       "name": "Clemens™ Plus Slips",
       "slug": "clemens-plus-slips",
       "summary": "Comfort and protection for heavy incontinence.",
@@ -59,13 +67,20 @@
         "Wetness indicator",
         "Re-fastenable flex hook Velcro® tapes for continual readjustment of slip"
       ],
-      "rating": "/rating.svg"
+      "rating": "/rating.svg",
+      "sizeGuide": [
+        "25 X 25 CM"
+      ],
+      "units": [
+        "46 Units"
+      ]
       
     },
 
       {
         "Id": 4,
         "image": "/disp-pants.svg",
+        "mainImage": "/under-pads-main.svg",
         "name": "Disposable Underpad",
         "slug": "clemens-underpad",
         "summary": "Contains aloe vera extract and vitamin E for skin healing and moisturisation.",
@@ -79,12 +94,19 @@
         "Elasticated waist band for added comfort", 
         "Wetness indicator",
         "Re-fastenable flex hook Velcro® tapes for continual readjustment of slip"
+      ],
+      "sizeGuide": [
+        "25 X 25 CM"
+      ],
+      "units": [
+        "46 Units"
       ]
         },
 
         {
           "Id": 5,
           "image": "/plus-slips.svg",
+          "mainImage": "/wash-cloths-main.svg",
           "name": "Clemens™ Ultra Slips",
           "slug": "clemens-ultra-slips",
           "summary": "Comfort and protection for heavy incontinence.",
@@ -95,6 +117,7 @@
           {
             "Id": 6,
             "image": "uni-pads.svg",
+            "mainImage": "/wash-cloths-main.svg",
             "name": "Clemens™ Unisex Pads",
             "slug": "clemens-unisex-pads",
             "summary": "Superior comfort and protection for severe to very severe incontinence.",
@@ -108,12 +131,19 @@
         "Elasticated waist band for added comfort", 
         "Wetness indicator",
         "Re-fastenable flex hook Velcro® tapes for continual readjustment of slip"
+      ],
+      "sizeGuide": [
+        "25 X 25 CM"
+      ],
+      "units": [
+        "46 Units"
       ]
             },
 
         {
             "Id": 7,
             "image": "/femi-pants.svg",
+            "mainImage": "/femi-pants-main.svg",
             "name": "Clemens™ Feminine Pants",
             "slug": "clemens-feminine-pants",
             "summary": "Secure and discreet protection for moderate incontinence.",
@@ -127,6 +157,12 @@
         "Elasticated waist band for added comfort", 
         "Wetness indicator",
         "Re-fastenable flex hook Velcro® tapes for continual readjustment of slip"
+      ],
+      "sizeGuide": [
+        "25 X 25 CM"
+      ],
+      "units": [
+        "46 Units"
       ]
             }
   ]

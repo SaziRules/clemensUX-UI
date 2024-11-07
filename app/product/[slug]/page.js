@@ -25,14 +25,15 @@ function Accordion({ title, children }) {
 }
 
 
-export default function ProductPage({ productId }) {
-  console.log('productId:', productId);
+export default function ProductPage({ params }) {
+  const { slug } = React.use(params);
+  console.log('slug:', slug);
   console.log('productsData:', productsData);
 
-  const product = productsData.find((product) => product.id === productId);
+  const product = productsData.find((product) => product.slug === slug);
 
   if (!product) {
-    return <div>Product not found. Please check the product ID.</div>;
+    return <div>Product not found. Please check the product slug.</div>;
   }
 
   return (
@@ -101,4 +102,13 @@ export default function ProductPage({ productId }) {
       </section>
     </main>
   );
+}
+
+export async function dynamicParams() {
+  const products = await fetch('https://your-api-endpoint/products');
+  const data = await products.json();
+
+  return data.map((product) => ({
+    params: { slug: product.slug },
+  }));
 }

@@ -75,7 +75,7 @@ export default function ProductPage({ params }) {
           </ul>
           </Accordion>
 
-          <Accordion title="Units Per Pack">
+          <Accordion title="Units Per Case">
           <ul className="list-disc pl-4 ">
               {product.units.map((unit, index) => (
               <li key={index} className="text-[#2C2E74] text-xs mb-2">{unit}</li>

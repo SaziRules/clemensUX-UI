@@ -58,7 +58,7 @@ function MobileNav() {
           className={`hover:bg-[#237DC0] transition duration-300 ease-out  p-3 flex items-center justify-center
            ${pathname === link.href ? 'bg-[#fff] text-[#2C2E74]' : 'text-[#fff]'}  `}
            onClick={() => setIsModalOpen(false)}>
-          <p className='px-2 text-xl text-center font-thin cursor-pointer'>{link.name}</p>
+          <p className='px-2 text-2xl text-center font-thin cursor-pointer'>{link.name}</p>
         </Link>
         ))}
             </div>

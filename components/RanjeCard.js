@@ -11,7 +11,7 @@ const ranges = [
   { src: consumer, title: 'Consumer Range', description: 'Comfort and protection for consumer incontinence.' },
   { src: pro, title: 'Professional Range', description: 'Professional incontinence product range, your partner for over 18 years.' },
   { src: extras, title: 'Accessories', description: 'The latest absorbency technology to keep you dry, day and night.' },
-  { src: buy, title: 'Where to buy', description: 'You can find Clemens™ products in-store at popular select retail stores.' },
+  { src: buy, title: 'Where to buy', description: 'You can find Clemens™ products in pharmacies and popular retail stores.' },
   { src: tips, title: 'What to buy', description: 'practical advice, support, and resources to manage incontinence.' },
   { src: pro, title: 'Knowledge Hub', description: 'Connect with others who understand and share your experiences.' },
 ]

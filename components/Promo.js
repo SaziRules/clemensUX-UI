@@ -4,7 +4,7 @@ import promo from '@/assets/promo.png'
 
 function Promo() {
   return (
-    <div className='flex flex-col lg:flex-row h-auto lg:h-[390px] lg:p-5 gap-5 lg:gap-0'>
+    <div className='flex flex-col lg:flex-row h-auto lg:h-[390px]  lg:gap-0'>
       <div className='flex-1 content-center p-5 bg-gradient-to-l from-sky-500 to-indigo-500 mx-[-2rem] lg:mx-0'>
         <h1 className='text-center text-white text-2xl lg:text-[35px] mx-auto font-sans leading-6 pt-7 lg:leading-8 lg:w-[550px] pb-4 lg:pb-7 font-medium'>
           With discreet comfort to live every moment with confidence!
@@ -17,10 +17,10 @@ function Promo() {
       <div className='hidden lg:block relative flex-1 items-center justify-center p-5'>
         <Image 
           src={promo} 
-          fill
+          fill 
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           style={{ objectFit: 'cover'}}
-          alt="Promo image"
+          alt="Promotion Image"
         />
       </div>
     </div>

@@ -4,9 +4,9 @@ import promo from '@/assets/promo.png'
 
 function Promo() {
   return (
-    <div className='flex flex-col lg:flex-row h-auto lg:h-[390px]  lg:gap-0'>
+    <div className='flex flex-col lg:flex-row h-auto lg:h-[360px] gap-0'>
       <div className='flex-1 content-center p-5 bg-gradient-to-l from-sky-500 to-indigo-500 mx-[-2rem] lg:mx-0'>
-        <h1 className='text-center text-white text-2xl lg:text-[35px] mx-auto font-sans leading-6 pt-7 lg:leading-8 lg:w-[550px] pb-4 lg:pb-7 font-medium'>
+        <h1 className='text-center text-white text-2xl lg:text-[35px] font-sans leading-6 pt-7 lg:leading-8 lg:w-[550px] pb-4 lg:pb-7 font-medium'>
           With discreet comfort to live every moment with confidence!
         </h1>
         <p className='text-center text-sky-500 bg-white cursor-pointer rounded-full 
@@ -14,7 +14,7 @@ function Promo() {
           Learn More
         </p>
       </div>
-      <div className='hidden lg:block relative flex-1 items-center justify-center p-5'>
+      <div className='hidden lg:block relative flex-1 items-center h-full justify-center p-5'>
         <Image 
           src={promo} 
           fill 

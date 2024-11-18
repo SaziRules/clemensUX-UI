@@ -1,15 +1,14 @@
 import React from 'react'
+import HealthTips from '@/components/HealthTips'
 
-export default function HealthTips() {
+
+export default function Tips() {
   return (
     <div>
-        
-        <main className="max-w-7xl mx-[auto] px-8 sm:px-16 md:px-0">
-        <section className="pt-[3%]">
+      <main className="max-w-7xl mx-[auto] px-8 sm:px-16 md:px-0">
+        <section className="pt-[7%]">
           <div>
-            <div className="flex items-center justify-center pb-[5%]">
-              <h1>Health Tips</h1>
-            </div>
+            <HealthTips />
             </div>     
         </section>
         </main>

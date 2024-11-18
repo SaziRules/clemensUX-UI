@@ -36,17 +36,17 @@ export default function TipsPage({ params }) {
       </section>
       <hr className="h-px my-8 bg-gray-100 border-[0] dark:bg-gray-100"></hr>
 
-      <section>
-      <div className='flex items-center gap-5 flex-wrap sm:flex-col'>
+      <section className='pt-[3%] pb-[3%]'>
+      <div className='grid sm:grid-cols-2 items-center gap-5'>
     {tip.tips.map((tipContent, index) => (
-      <div key={index} className='bg-[#E4EDF3] p-5 sm:w-full'>
+      <div key={index} className='bg-[#E4EDF3] h-full p-5 sm:w-full'>
         <h2 className='text-[#2C2E74] font-medium text-xl'>{tip.tipTitle[index]}</h2>
         <p className='text-[#2C2E74] font-light'>{tipContent}</p>
       </div>
     ))}
   </div>
       </section>
-      
+      <hr className="h-px my-8 bg-gray-100 border-[0] dark:bg-gray-100"></hr>
       <section className=" pt-[3%]">
         <h3 className='md:pl-10 pl-3 pb-4 md:text-4xl  text-2xl text-[#2C2E74] font-bold'>You may also like</h3>
         <HealthTips />

@@ -31,7 +31,7 @@ export default function PostPage({ params }) {
         <div className="flex-1 sm:items-center sm:justify-start text-left sm:pl-8 lg:ml-[-80px] md:pl-0 sm:pr-8">
           <h1 className='font-bold text-2xl sm:text-3xl md:text-5xl text-[#2C2E74] mb-3'>{post.title}</h1>
           <p className='text-[#2C2E74]  mb-4'>{post.body}</p>
-          <p>{post.author}</p>
+          <p className='text-sm font-bold text-[#2C2E74] '>Author: <span className='font-normal'>{post.author}</span></p>
           
           
         </div>

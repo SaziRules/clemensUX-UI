@@ -39,7 +39,7 @@ export default function TipsPage({ params }) {
       <section className='pt-[3%] pb-[3%]'>
       <div className='grid sm:grid-cols-2 items-center gap-5'>
     {tip.tips.map((tipContent, index) => (
-      <div key={index} className='bg-[#E4EDF3] h-full p-5 sm:w-full'>
+      <div key={index} className='bg-[#E4EDF3] h-full p-5 md:w-full rounded-lg '>
         <h2 className='text-[#2C2E74] font-medium text-xl'>{tip.tipTitle[index]}</h2>
         <p className='text-[#2C2E74] font-light'>{tipContent}</p>
       </div>

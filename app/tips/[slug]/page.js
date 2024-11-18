@@ -32,11 +32,20 @@ export default function TipsPage({ params }) {
           <h1 className='font-bold text-2xl sm:text-3xl md:text-5xl text-[#2C2E74] mb-3'>{tip.title}</h1>
           <p className='text-[#2C2E74]  mb-4'>{tip.body}</p>
           <p className='text-sm font-bold text-[#2C2E74] '>Author: <span className='font-normal'>{tip.author}</span></p>
-          
-          
         </div>
       </section>
       <hr className="h-px my-8 bg-gray-100 border-[0] dark:bg-gray-100"></hr>
+
+      <section>
+      <div className='flex items-center gap-5 flex-wrap sm:flex-col'>
+    {tip.tips.map((tipContent, index) => (
+      <div key={index} className='bg-[#E4EDF3] p-5 sm:w-full'>
+        <h2 className='text-[#2C2E74] font-medium text-xl'>{tip.tipTitle[index]}</h2>
+        <p className='text-[#2C2E74] font-light'>{tipContent}</p>
+      </div>
+    ))}
+  </div>
+      </section>
       
       <section className=" pt-[3%]">
         <h3 className='md:pl-10 pl-3 pb-4 md:text-4xl  text-2xl text-[#2C2E74] font-bold'>You may also like</h3>

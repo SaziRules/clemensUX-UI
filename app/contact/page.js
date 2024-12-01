@@ -20,9 +20,7 @@ export default function Contact() {
       </div>
 
       <h1 className='font-bold mt-4 text-3xl text-[#fff]'>Head Office</h1>
-      <p className='font-light text-[#fff] text-[16px] pt-2'>Building 3 Bryanston Gate
-        170 Curzon Road
-        Bryanston, Johannesburg</p>
+      <p className='font-light text-[#fff] text-[16px] pt-2'>20 Mahatma Gandhi Road,<br /> Durban 4001 </p>
     </div>
 
     <div className='p-10 sm:w-[48%] md:w-[100%] items-center justify-center text-center bg-gradient-to-b from-sky-500 to-indigo-500'>
@@ -41,8 +39,7 @@ sales@validus.co.za</p>
       </div>
 
       <h1 className='font-bold mt-4 text-3xl text-[#fff]'>Write to us</h1>
-      <p className='font-light text-[#fff] text-[16px] pt-2'>Private Bag X85<br />
-Bryanston</p>
+      <p className='font-light text-[#fff] text-[16px] pt-2'>PO Box 918, Durban 4000</p>
     </div>
   </div>
 </section>

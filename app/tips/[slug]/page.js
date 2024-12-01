@@ -18,7 +18,7 @@ export default function TipsPage({ params }) {
 
   return (
     <main className="max-w-7xl mx-auto px-8 pt-[5%] sm:px-16 md:px-0">
-      <section className="flex flex-col sm:gap-5 sm:px-5 sm:flex-row pb-[3%] pt-7">
+      <section className="flex flex-col sm:gap-5 sm:px-5 sm:flex-row pb-[2%] pt-7">
         <div className="flex-1 pb-5 items-center sm:items-start sm:justify-center">
           <Image
             src={tip.image}

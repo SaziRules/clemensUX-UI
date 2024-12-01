@@ -20,7 +20,7 @@ function Doctor() {
             Are you a medical professional?
           </h1>
           <p className='text-center text-white font-thin leading-5 sm:leading-6 pb-5 sm:pb-7 text-sm sm:text-[14px]'>
-            If you are unsure which Clemens product is right for you or for your loved one, request a FREE sample by clicking the button below to submit a request form.
+            If you are unsure which Clemens® product is right for you or for your loved one, request a FREE sample by clicking the button below to submit a request form.
           </p>
           <div className='text-center'>
             <button className='text-sky-500 bg-white cursor-pointer rounded-full py-2 px-6 hover:scale-105 transform transition duration-300 ease-out inline-block'>

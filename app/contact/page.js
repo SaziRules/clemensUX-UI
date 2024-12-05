@@ -29,7 +29,7 @@ export default function Contact() {
       </div>
 
       <h1 className='font-bold mt-4 text-3xl text-[#fff]'>Careline</h1>
-      <p className='font-light text-[#fff] text-[16px] pt-2'>011 608 3955<br />
+      <p className='font-light text-[#fff] text-[16px] pt-2'>031 308 1763<br />
 sales@validus.co.za</p>
     </div>
 

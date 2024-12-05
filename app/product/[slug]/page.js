@@ -86,7 +86,7 @@ export default function ProductPage({ params }) {
 
           <div className='flex gap-x-2 pt-4'>
           <button className="py-2 px-6 text-white bg-[#2C2E74] rounded-md hover:bg-[#1C1E40] transition duration-200 ease-out">Buy Now</button>
-          <button className="py-2 px-6 text-[#2C2E74] border-[1px] border-[#2C2E74] bg-[#fff] rounded-md hover:bg-[#2C2E74] hover:text-white transition duration-200 ease-out">Keep Looking</button>
+          <button className="py-2 px-6 text-[#2C2E74] border-[1px] border-[#2C2E74] bg-[#fff] rounded-md hover:bg-[#1C1E40] hover:text-white transition duration-200 ease-out">Product Info</button>
           </div>
           
         </div>

@@ -85,9 +85,26 @@ export default function ProductPage({ params }) {
           </div>
 
           <div className='flex gap-x-2 pt-4'>
-          <button className="py-2 px-6 text-white bg-[#2C2E74] rounded-md hover:bg-[#1C1E40] transition duration-200 ease-out">Buy Now</button>
-          <button className="py-2 px-6 text-[#2C2E74] border-[1px] border-[#2C2E74] bg-[#fff] rounded-md hover:bg-[#1C1E40] hover:text-white transition duration-200 ease-out">Product Info</button>
-          </div>
+  <button className="py-2 px-6 text-white bg-[#2C2E74] rounded-md hover:bg-[#1C1E40] transition duration-200 ease-out">
+    Buy Now
+  </button>
+  <a 
+  href="/dataSummary.xlsx" target='_blank'
+  download="ProductDataSummary.xlsx" 
+  className="py-2 px-3 text-[#2C2E74] border-[1px] border-[#2C2E74] bg-[#fff] rounded-md hover:bg-[#1C1E40] hover:text-white transition duration-200 ease-out flex items-center justify-center gap-2">
+    Product Data Summary
+    {/* Add Download Icon */}
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="currentColor"
+      viewBox="0 0 24 24"
+      className="w-5 h-5"
+    >
+      <path d="M12 16a1 1 0 0 0 .707-.293l4-4a1 1 0 0 0-1.414-1.414L13 12.586V4a1 1 0 1 0-2 0v8.586L8.707 10.293a1 1 0 0 0-1.414 1.414l4 4A1 1 0 0 0 12 16ZM20 18H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2Z" />
+    </svg>
+  </a>
+</div>
+
           
         </div>
       </section>

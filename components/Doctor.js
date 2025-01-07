@@ -89,7 +89,7 @@ const Doctor = () => {
 
     try {
       await addDoc(collection(db, "medicalRequests"), formData);
-      alert("Form submitted successfully! We'll keep in touch while processing the request");
+      alert("Form submitted successfully! We're processing your request");
 
       setIsModalOpen(false);
       setStep(1);

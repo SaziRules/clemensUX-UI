@@ -1,60 +1,92 @@
 [
     
   {
-      "Id": 3,
-      "image": "/wash-cloths.svg",
-      "mainImage": "/wash-cloths-main.svg",
-      "name": "Clemens® Washcloths",
-      "slug": "clemens-wash-cloths",
-      "summary": "Contains aloe vera extract and vitamin E for skin healing and moisturisation.",
-      "description": "It’s so much easier to keep yourself or your loved one clean and fresh with Clemens® Disposable Washcloths. Suitable for children and adults, these extra large wipes make changing and cleaning so much more convenient as no water is needed. Cleaner skin – less skin irritation.",
-      "size": ["XL", "L", "M", "S", "XS"],
-      "features": 
-      [ 
-        "Contains aloe vera extract and vitamin E for skin healing and moisturisation", 
-        "Gentle on the skin to avoid irritation", 
-        "Hypoallergenic"
-      ],
-      "sizeGuide": [
-        "25 X 25 CM"
-      ],
-      "units": [
-        "46 Units"
-      ]
-      },
-  
-  {
-    "Id": 2,
-    "image": "/uni-pants.svg",
-    "mainImage": "/uni-pants-main.svg",
-    "name": "Clemens® Unisex Pants",
-    "slug": "clemens-unisex-pants",
-    "summary":"Discreet protection for moderate incontinence, every day all day.",
-    "description": "Clemens® unisex protection pants combine the latest technologies in a soft, comfortable and easy to use product that supports an active lifestyle.  Fully elasticated for a close yet comfortable fit.  Clemens® unisex protection pants are designed to replace regular underwear, while remaining discreet under clothing.  Suitable for moderate levels of incontinence. ",
-    "size": [ "S", "M", "L", "XL"],
+    "Id": 6,
+    "image": "uni-pads.svg",
+    "mainImage": "/uni-pads-main.svg",
+    "name": "Clemens® Unisex Pads",
+    "slug": "clemens-unisex-pads",
+    "summary": "Superior comfort and protection for severe to very severe incontinence.",
+    "description": "The Clemens® Unisex Pads range is designed for light bladder weakness and offers quick and efficient absorption for optimal dryness and comfort. They are designed to be worn comfortably and discreetly under normal clothing, with an adhesive strip to hold the pad in place.",
+    "size": ["-", "-", "-", "-"],
     "features": 
-  [ 
-    "Fully elasticated with a 4-way stretch making them ideal for active people", 
-    "Elasticated leg cuffs for protection against leakage", 
-    "Multi-layered absorbent core for added security", 
-    "Tearable side seams for easy removal", 
-    "Odour neutralising technology for confidence"
-  ],
-  "sizeGuide": [
-    "Small : 60-90 (Hip/Waist) Centimetres",
-    "Medium : 80-120 (Hip/Waist) Centimetres",
-    "Large : 100-145 (Hip/Waist) Centimetres",
-    "Extra Large : 130-170 (Hip/Waist) Centimetres"
-  ],
-  "units": [
-    "Small : 14 Units",
-    "Medium : 14 Units",
-    "Large : 14 Units",
-    "Extra Large : 14 Units"
-  ]
-},
+[ 
+"Anatomically-shaped for a secure fit", 
+"Elasticated cuffs for protection against leakage", 
+"Super absorbent core to ensure optimum dryness", 
+"Elasticated waist band for added comfort", 
+"Wetness indicator",
+"Re-fastenable flex hook Velcro® tapes for continual readjustment of slip"
+],
+"sizeGuide": [
+"-"
+],
+"units": [
+"14 Units"
+]
+    },
+
+    {
+      "Id": 2,
+      "image": "/uni-pants.svg",
+      "mainImage": "/uni-pants-main.svg",
+      "name": "Clemens® Unisex Pants",
+      "slug": "clemens-unisex-pants",
+      "summary":"Discreet protection for moderate incontinence, every day all day.",
+      "description": "Clemens® unisex protection pants combine the latest technologies in a soft, comfortable and easy to use product that supports an active lifestyle.  Fully elasticated for a close yet comfortable fit.  Clemens® unisex protection pants are designed to replace regular underwear, while remaining discreet under clothing.  Suitable for moderate levels of incontinence. ",
+      "size": [ "S", "M", "L", "XL"],
+      "features": 
+    [ 
+      "Fully elasticated with a 4-way stretch making them ideal for active people", 
+      "Elasticated leg cuffs for protection against leakage", 
+      "Multi-layered absorbent core for added security", 
+      "Tearable side seams for easy removal", 
+      "Odour neutralising technology for confidence"
+    ],
+    "sizeGuide": [
+      "Small : 60-90 (Hip/Waist) Centimetres",
+      "Medium : 80-120 (Hip/Waist) Centimetres",
+      "Large : 100-145 (Hip/Waist) Centimetres",
+      "Extra Large : 130-170 (Hip/Waist) Centimetres"
+    ],
+    "units": [
+      "Small : 14 Units",
+      "Medium : 14 Units",
+      "Large : 14 Units",
+      "Extra Large : 14 Units"
+    ]
+  },
 
   {
+    "Id": 7,
+    "image": "/femi-pants.svg",
+    "mainImage": "/femi-pants-main.svg",
+    "name": "Clemens® Feminine Pants",
+    "slug": "clemens-feminine-pants",
+    "summary": "Secure and discreet protection for moderate incontinence.",
+    "description": "Clemens® Feminine protection pants are 40% thinner than Clemens® unisex protection pants.  Designed for discreet, comfortable and easy-to use  protection for active women suffering from moderate incontinence.",
+    "size": ["M", "L"],
+    "features": 
+[ 
+"Discreet beige colour, comfortable and easy-to-use", 
+"Contour Fit Technology – 40 % thinner than Clemens® Unisex Protection Pants", 
+"for more comfort and discretion", 
+"Anatomically-shaped for a secure fit", 
+"Extra absorption technology with double anti-leak barrier for optimum dryness",
+"Tearable side seams for easy removal",
+"Up to 10 hours odour control for peace of mind"
+],
+"sizeGuide": [
+"Medium : 80-120 (Hip/Waist) Centimetres",
+"Large : 100-145 (Hip/Waist) Centimetres"
+],
+"units": [
+"Medium : 9 Units",
+"Large : 8 Units"
+]
+    },
+
+    {
       "Id": 1,
       "image": "/plus-slips.svg",
       "mainImage": "/plus-slips-main.svg",
@@ -88,6 +120,40 @@
       
     },
 
+    {
+      "Id": 5,
+      "image": "/ultra-slips.svg",
+      "mainImage": "/ultra-slips-main.svg",
+      "name": "Clemens® Ultra Slips",
+      "slug": "clemens-ultra-slips",
+      "summary": "Comfort and protection for heavy incontinence.",
+      "description": "If you or your loved one are immobile or under 24-hour care with moderate to severe incontinence, Clemens® Ultra Slips will  give you leak-free confidence. These extra absorbent, diaper-style slips are great for overnight use as they offer up to 12 hours of protection. This means less changes and more freedom.",
+      "size": ["XS", "S", "M", "L", "XL"],
+      "features": 
+  [ 
+    "Anatomically-shaped for a secure fit", 
+    "Elasticated cuffs for protection against leakage", 
+    "Super absorbent core to ensure optimum dryness",
+    "Elasticated waist band for added comfort",
+    "Wetness indicator",
+    "Re-fastenable flex hook Velcro® tapes for continual readjustment of slip"
+  ],
+  "sizeGuide": [
+    "Extra Small : 40-70 (Hip/Waist) Centimetres",
+    "Small : 60-80 (Hip/Waist) Centimetres",
+    "Medium : 70-110 (Hip/Waist) Centimetres",
+    "Large : 100-150 (Hip/Waist) Centimetres",
+    "Extra Large : 150-170 (Hip/Waist) Centimetres"
+  ],
+  "units": [
+    "Extra Small : 14 Units",
+    "Small : 15 Units",
+    "Medium : 15 Units",
+    "Large : 15 Units",
+    "Extra Large : 14 Units"
+  ]
+      },
+
       {
         "Id": 4,
         "image": "/disp-pants.svg",
@@ -112,91 +178,31 @@
         },
 
         {
-          "Id": 5,
-          "image": "/ultra-slips.svg",
-          "mainImage": "/ultra-slips-main.svg",
-          "name": "Clemens® Ultra Slips",
-          "slug": "clemens-ultra-slips",
-          "summary": "Comfort and protection for heavy incontinence.",
-          "description": "If you or your loved one are immobile or under 24-hour care with moderate to severe incontinence, Clemens® Ultra Slips will  give you leak-free confidence. These extra absorbent, diaper-style slips are great for overnight use as they offer up to 12 hours of protection. This means less changes and more freedom.",
-          "size": ["XS", "S", "M", "L", "XL"],
+          "Id": 3,
+          "image": "/wash-cloths.svg",
+          "mainImage": "/wash-cloths-main.svg",
+          "name": "Clemens® Washcloths",
+          "slug": "clemens-wash-cloths",
+          "summary": "Contains aloe vera extract and vitamin E for skin healing and moisturisation.",
+          "description": "It’s so much easier to keep yourself or your loved one clean and fresh with Clemens® Disposable Washcloths. Suitable for children and adults, these extra large wipes make changing and cleaning so much more convenient as no water is needed. Cleaner skin – less skin irritation.",
+          "size": ["", "", ""],
           "features": 
-      [ 
-        "Anatomically-shaped for a secure fit", 
-        "Elasticated cuffs for protection against leakage", 
-        "Super absorbent core to ensure optimum dryness",
-        "Elasticated waist band for added comfort",
-        "Wetness indicator",
-        "Re-fastenable flex hook Velcro® tapes for continual readjustment of slip"
-      ],
-      "sizeGuide": [
-        "Extra Small : 40-70 (Hip/Waist) Centimetres",
-        "Small : 60-80 (Hip/Waist) Centimetres",
-        "Medium : 70-110 (Hip/Waist) Centimetres",
-        "Large : 100-150 (Hip/Waist) Centimetres",
-        "Extra Large : 150-170 (Hip/Waist) Centimetres"
-      ],
-      "units": [
-        "Extra Small : 14 Units",
-        "Small : 15 Units",
-        "Medium : 15 Units",
-        "Large : 15 Units",
-        "Extra Large : 14 Units"
-      ]
-          },
+          [ 
+            "Contains aloe vera extract and vitamin E for skin healing and moisturisation", 
+            "Gentle on the skin to avoid irritation", 
+            "Hypoallergenic"
+          ],
+          "sizeGuide": [
+            "12 X 48 CM"
+          ],
+          "units": [
+            "46 Units"
+          ]
+          }
 
-          {
-            "Id": 6,
-            "image": "uni-pads.svg",
-            "mainImage": "/uni-pads-main.svg",
-            "name": "Clemens® Unisex Pads",
-            "slug": "clemens-unisex-pads",
-            "summary": "Superior comfort and protection for severe to very severe incontinence.",
-            "description": "The Clemens® Unisex Pads range is designed for light bladder weakness and offers quick and efficient absorption for optimal dryness and comfort. They are designed to be worn comfortably and discreetly under normal clothing, with an adhesive strip to hold the pad in place.",
-            "size": ["-", "-", "-", "-"],
-            "features": 
-      [ 
-        "Anatomically-shaped for a secure fit", 
-        "Elasticated cuffs for protection against leakage", 
-        "Super absorbent core to ensure optimum dryness", 
-        "Elasticated waist band for added comfort", 
-        "Wetness indicator",
-        "Re-fastenable flex hook Velcro® tapes for continual readjustment of slip"
-      ],
-      "sizeGuide": [
-        "-"
-      ],
-      "units": [
-        "14 Units"
-      ]
-            },
+        
 
-        {
-            "Id": 7,
-            "image": "/femi-pants.svg",
-            "mainImage": "/femi-pants-main.svg",
-            "name": "Clemens® Feminine Pants",
-            "slug": "clemens-feminine-pants",
-            "summary": "Secure and discreet protection for moderate incontinence.",
-            "description": "Clemens® Feminine protection pants are 40% thinner than Clemens® unisex protection pants.  Designed for discreet, comfortable and easy-to use  protection for active women suffering from moderate incontinence.",
-            "size": ["M", "L"],
-            "features": 
-      [ 
-        "Discreet beige colour, comfortable and easy-to-use", 
-        "Contour Fit Technology – 40 % thinner than Clemens® Unisex Protection Pants", 
-        "for more comfort and discretion", 
-        "Anatomically-shaped for a secure fit", 
-        "Extra absorption technology with double anti-leak barrier for optimum dryness",
-        "Tearable side seams for easy removal",
-        "Up to 10 hours odour control for peace of mind"
-      ],
-      "sizeGuide": [
-        "Medium : 80-120 (Hip/Waist) Centimetres",
-        "Large : 100-145 (Hip/Waist) Centimetres"
-      ],
-      "units": [
-        "Medium : 9 Units",
-        "Large : 8 Units"
-      ]
-            }
+          
+
+        
   ]

@@ -1,0 +1,492 @@
+[
+    {
+        "id": 1,
+        "storeName": "Amberfield - Centurion",
+        "storeNumber": "Y02857",
+        "storeAddress": "Shop E8 & E8A Mall@Reds, Cnr. Hendrik Verwoerd and Rooihuiskraal drive, Amberfield Centurion 0157",
+        "contactPerson": "Amoryn Snyman",
+        "contactNumber": "0126568975",
+        "workingHours": "09:00 - 19:00",
+        "location": {
+            "latitude": "-25.891422265655144",
+            "longitude": "28.152044609661825"
+        }
+    },
+    
+    {
+        "id": 2,
+        "storeName": "Anterm - Cape Town",
+        "storeNumber": "Y61315",
+        "storeAddress": "Shop 27, Adelphi centre, 277 Main Road, Sea Point, Cape Town, Western Cape, 8005",
+        "contactPerson": "Mr.Kobie Visagie",
+        "contactNumber": "0215410664",
+        "workingHours": "08:30 - 19:00",
+        "location": {
+            "latitude": "-33.91398528751525",
+            "longitude": "18.427699597041624"
+        }
+    },
+    
+    {
+        "id": 3,
+        "storeName": "Athol Oaklands - Bluebird",
+        "storeNumber": "Y53723",
+        "storeAddress": "Shop 27 Blubird shopping Center, Cnr Fort and Athol Oaklands Road, Birnam, Johannesburg, 2196",
+        "contactPerson": "Nazia Minty",
+        "contactNumber": "0114300600",
+        "workingHours": "08:30 - 19:00",
+        "location": {
+            "latitude": "-26.13260300089551",
+            "longitude": "28.07201092730913"
+        }
+    },
+    
+    {
+        "id": 4,
+        "storeName": "Ballito Junction",
+        "storeNumber": "Y54393",
+        "storeAddress": "Ballito Junction Shopping Centre, Leonora Drive, Ballito, Kwa-Zulu Natal, 4420",
+        "contactPerson": "Preshena Seunath",
+        "contactNumber": "0329468580",
+        "workingHours": "08:00 - 19:00",
+        "location": {
+            "latitude": "-29.506343402823802",
+            "longitude": "31.208080888262735"
+        }
+    },
+    
+    {
+        "id": 5,
+        "storeName": "Ballito Lifestyle Centre",
+        "storeNumber": "Y54393",
+        "storeAddress": "Ballito Lifestyle Centre, Corner P398 & P445 Main Road, Ballito, Durban, KwaZulu-Natal, 4420",
+        "contactPerson": "Preshena Seunath",
+        "contactNumber": "0316120321",
+        "workingHours": "08:00 - 18:00",
+        "location": {
+            "latitude": "-29.525275050677788",
+            "longitude": "31.21282255440378"
+        }
+    },
+    
+    {
+        "id": 6,
+        "storeName": "Bayside Mall - Table View",
+        "storeNumber": "Y54217",
+        "storeAddress": "E31, Bayside Mall, Cnr Blaauberg Road and Otto Duplessis Drive, Table View, Western Cape, 7441",
+        "contactPerson": "Nonzwakazi Titi",
+        "contactNumber": "0215226140",
+        "workingHours": "09:00 - 19:00",
+        "location": {
+            "latitude": "-33.83353368567783",
+            "longitude": "18.49692399788028"
+        }
+    },
+    
+    {
+        "id": 7,
+        "storeName": "Baywest Mall - Port Elizabeth",
+        "storeNumber": "Y55752",
+        "storeAddress": "Baywest Mall, 100 Baywest Boulevard, Hunters Treat, Port Elizabeth, 6017",
+        "contactPerson": "Vinette Van Der Merwe",
+        "contactNumber": "0415410071",
+        "workingHours": "09:00 - 19:00",
+        "location": {
+            "latitude": "-33.96160993943727",
+            "longitude": "25.462507541535054"
+        }
+    },
+    
+    {
+        "id": 8,
+        "storeName": "Beacon Bay - East London",
+        "storeNumber": "Y61607",
+        "storeAddress": "2 Retail Park Bonsa Bay Road Beacon Bay East London Eastern Cape 5241 ",
+        "contactPerson": "Phumeza Mhlope",
+        "contactNumber": "0415410123",
+        "workingHours": "08:00 - 18:00",
+        "location": {
+            "latitude": "-32.958702155220806",
+            "longitude": "27.940167093088704"
+        }
+    },
+    
+    {
+        "id": 9,
+        "storeName": "Bedford Square - Bedfordview",
+        "storeNumber": "Y55692",
+        "storeAddress": "Bedford Square, Cnr Van der Linde & Smith Roads, Bedford Gardens, Bedfordview, 2007",
+        "contactPerson": "Aslam Laher",
+        "contactNumber": "0114172600",
+        "workingHours": "09:00 - 18:00",
+        "location": {
+            "latitude": "-26.016145298226203",
+            "longitude": "28.121831141958683"
+        }
+    },
+    
+    {
+        "id": 10,
+        "storeName": "Benmore Gardens",
+        "storeNumber": "Y52527",
+        "storeAddress": "Benmore Gardens Shopping Centre, Cnr Grayston & Benmore, Sandton, 2196",
+        "contactPerson": "Mr.Tatenda Tichareva",
+        "contactNumber": "0117839715",
+        "workingHours": "08:00 - 19:00",
+        "location": {
+            "latitude": "-25.936310582293476",
+            "longitude": "28.082144675343137" 
+        }
+    },
+    
+    {
+        "id": 11,
+        "storeName": "Berea - East London",
+        "storeNumber": "Y00057",
+        "storeAddress": "31 Pearce Street, Berea, East London, Eastern Cape, 5201",
+        "contactPerson": "Donique Pillay",
+        "contactNumber": "0437211300",
+        "workingHours": "09:00 - 18:00",
+        "location": {
+            "latitude": "-32.992308594746724",
+            "longitude": "27.912381489351755" 
+        }
+    },
+    
+    {
+        "id": 12,
+        "storeName": "Birch Acres - Kempton Park",
+        "storeNumber": "Y59693",
+        "storeAddress": "Shop 20 Birch Acres Shopping Centre, Cnr Isimuku & Isikalu Street, Birch Acres, Kempton Park, 1632",
+        "contactPerson": "Mr.Tintswalo Tshabalala",
+        "contactNumber": "0106126416",
+        "workingHours": "09:00 - 18:00",
+        "location": {
+            "latitude": "-26.037205074874624",
+            "longitude": "28.193119995315058" 
+        }
+    },
+    
+    {
+        "id": 13,
+        "storeName": "Blaauw Village - Pretoria",
+        "storeNumber": "Y62097",
+        "storeAddress": "Blaauw Village , 283 Ben Viljoen Street Pretoria North , 0182",
+        "contactPerson": "Ms S Ranjit",
+        "contactNumber": "0125740660",
+        "workingHours": "08:00 - 19:00",
+        "location": {
+            "latitude": "-25.668479350161814",
+            "longitude": "28.17252149376651"  
+        }
+    },
+    
+    {
+        "id": 14,
+        "storeName": "Bloemfontein - Northridge Mall",
+        "storeNumber": "Y53740",
+        "storeAddress": "Shop 68, Northridge Mall, Kenneth Kaunda Street, Helicon Heights, Bloemfontein",
+        "contactPerson": "Mr.Marthinus Buurman",
+        "contactNumber": "0517780100",
+        "workingHours": "09:00 - 18:00",
+        "location": {
+            "latitude": "-29.0710647921622",
+            "longitude": "26.233069795121754"  
+        }
+    },
+    
+    {
+        "id": 15,
+        "storeName": "Blomtuin - Suikerbos Centre",
+        "storeNumber": "Y02494",
+        "storeAddress": "Shop 3, Suikerbos Centre, Suikerbos Street, Bellville, 7530",
+        "contactPerson": "Christelle White-Phillips",
+        "contactNumber": "0219191663",
+        "workingHours": "09:00 - 18:00",
+        "location": {
+            "latitude": "-33.883663210142714",
+            "longitude": "18.648978467942257"   
+        }
+    },
+    
+    {
+        "id": 16,
+        "storeName": "Blue Crane Ridge - Alberton",
+        "storeNumber": "Y61120",
+        "storeAddress": "Shop 15, Blue Crane Shopping Centre, Cnr. Nelson Mandela Avenue & Blue Crane Drive, Meyersdal, Alberton, 1448",
+        "contactPerson": "Mr.Alwyn van Aswegen",
+        "contactNumber": "0105412323",
+        "workingHours": "08:00 - 19:00",
+        "location": {
+            "latitude": "-26.286615799576364",
+            "longitude": "28.09547056942566"    
+        }
+    },
+    // The Items below are missing the correct coordinates
+    {
+        "id": 17,
+        "storeName": "Blue Route - Tokai",
+        "storeNumber": "Y54854",
+        "storeAddress": "Blue Route Mall, 16 Tokai Road, Tokai, Cape Town, 7945",
+        "contactPerson": "Ms.Firyaal Bawa",
+        "contactNumber": "0217101230",
+        "workingHours": "09:00 - 19:00",
+        "location": {
+            "latitude": "-26.286615799576364",
+            "longitude": "28.09547056942566"    
+        }
+    },
+    
+    {
+        "id": 18,
+        "storeName": "Boardwalk Mall - Summerstrand",
+        "storeNumber": "Y61121",
+        "storeAddress": "Shop 64, Boardwalk Mall, Marine Drive, Summerstrand, Port Elizabeth, Eastern Cape, 6001",
+        "contactPerson": "Ms.Candice Bisson",
+        "contactNumber": "0415410006",
+        "workingHours": "09:00 - 19:00",
+        "location": {
+            "latitude": "-26.286615799576364",
+            "longitude": "28.09547056942566"    
+        }
+    },
+    
+    {
+        "id": 19,
+        "storeName": "Boksburg North - K90 Retail Centre",
+        "storeNumber": "Y52876",
+        "storeAddress": "Northrand Road Centre, Cnr Northrand Road & Jeremy Karks Road, Eveleigh Ext 2, Boksburg North,1461",
+        "contactPerson": "Mrs .Rejaanne Maritz",
+        "contactNumber": "0113061500",
+        "workingHours": "08:00 - 18:00",
+        "location": {
+            "latitude": "-26.286615799576364",
+            "longitude": "28.09547056942566"    
+        }
+    },
+    
+    {
+        "id": 20,
+        "storeName": "Bophelomed - Polokwane",
+        "storeNumber": "Y52657",
+        "storeAddress": "Jane Furse Rd, Stand 5BA Shop 15 G, Phasha Shopping Centre, Lebowakgomo, 0737",
+        "contactPerson": "Ms.Anna Ritshuri",
+        "contactNumber": "0156336777",
+        "workingHours": "08:00 - 17:00",
+        "location": {
+            "latitude": "-26.286615799576364",
+            "longitude": "28.09547056942566"    
+        }
+    },
+    
+    {
+        "id": 21,
+        "storeName": "Boskruin - Randburg",
+        "storeNumber": "Y51839",
+        "storeAddress": "Cnr Hawken Ave & Pres Fouche Dr Shop 11, Boskruin Village Shopping Centre, Bromhof, Randburg, 2154",
+        "contactPerson": "Ms.Manuella Tefanis",
+        "contactNumber": "0117915448",
+        "workingHours": "08:30 - 18:00",
+        "location": {
+            "latitude": "-26.286615799576364",
+            "longitude": "28.09547056942566"    
+        }
+    },
+    
+    {
+        "id": 22,
+        "storeName": "Braamfontein - Johannesburg",
+        "storeNumber": "Y59428",
+        "storeAddress": "Shop no 2 Braamfontein Shopping Centre, 19 Ameshoff Street, Braamfontein, Johannesburg, 2001",
+        "contactPerson": "Mr.Enock Chifamba",
+        "contactNumber": "0105411326",
+        "workingHours": "08:00 - 17:30",
+        "location": {
+            "latitude": "-26.286615799576364",
+            "longitude": "28.09547056942566"    
+        }
+    },
+    
+    {
+        "id": 23,
+        "storeName": "Bracken Gardens - Alberton",
+        "storeNumber": "Y01164",
+        "storeAddress": "Shop G1, Bracken Gardens Shopping Centre, 119 Hennie Alberts St, Brackenhurst, Alberton, 1449",
+        "contactPerson": "Jolinda Pienaar",
+        "contactNumber": "0119001525",
+        "workingHours": "08:00 - 19:00",
+        "location": {
+            "latitude": "-26.286615799576364",
+            "longitude": "28.09547056942566"    
+        }
+    },
+    
+    {
+        "id": 24,
+        "storeName": "Brackenfell Corner Shopping Centre",
+        "storeNumber": "Y60431",
+        "storeAddress": "Shop 22, Brackenfell Corner Shopping Centre, Cnr of Frans Conradie and Paradys Roads, Brackenfell, Western Cape, 7560",
+        "contactPerson": "Ms.Thylita Lotriet",
+        "contactNumber": "0215410609",
+        "workingHours": "09:00 - 19:00",
+        "location":{ 
+            "latitude": "-26.286615799576364",
+            "longitude": "28.09547056942566"    
+        }
+    },
+    
+    {
+        "id": 25,
+        "storeName": "Bredell Square - Kempton Park",
+        "storeNumber": "Y61565",
+        "storeAddress": "Shop no2, Bredell Square, 169 3rd Road, Bredell, Kempton Park, Gauteng, 1623",
+        "contactPerson": "Ms.Petro Smith",
+        "contactNumber": "0105412550",
+        "workingHours": "09:00 - 18:00",
+        "location": {
+            "latitude": "-26.286615799576364",
+            "longitude": "28.09547056942566"    
+        }
+    },
+    
+    {
+        "id": 26,
+        "storeName": "Bromhof Village - Randburg",
+        "storeNumber": "Y59392",
+        "storeAddress": "Shop 3 & 6, cnr CR Swart & Tin Road, Bromhof, Randburg, Gauteng, 2154",
+        "contactPerson": "Siphokazi Magadlela",
+        "contactNumber": "0105410021",
+        "workingHours": "09:00 - 18:00",
+        "location": {
+            "latitude": "-26.286615799576364",
+            "longitude": "28.09547056942566"    
+        }
+    },
+    
+    {
+        "id": 27,
+        "storeName": "Brooklyn Mall - Pretoria",
+        "storeNumber": "Y54414",
+        "storeAddress": "Brooklyn Mall, 338 Bronkhorst St, New Muckleneuk, Brooklyn, Pretoria, 0181",
+        "contactPerson": "Helena Bezuidenhout",
+        "contactNumber": "0124330440",
+        "workingHours": "09:00 - 19:00",
+        "location": {
+            "latitude": "-26.286615799576364",
+            "longitude": "28.09547056942566"    
+        }
+    },
+    
+    {
+        "id": 28,
+        "storeName": "Bryanpark - Bryanston",
+        "storeNumber": "Y55145",
+        "storeAddress": "Bryanpark Shopping Centre, shop 12, Cnr Cumberland ave & Grosvenor rd, Bryanston, Sandton, 2191",
+        "contactPerson": "Belinda de Souza",
+        "contactNumber": "0117062950",
+        "workingHours": "08:30 - 18:00",
+        "location": {
+            "latitude": "-26.286615799576364",
+            "longitude": "28.09547056942566"    
+        }
+    },
+    
+    {
+        "id": 29,
+        "storeName": "Canal Walk - Cape Town",
+        "storeNumber": "Y51774",
+        "storeAddress": "Canal Walk Shopping Centre, Century Blvd, Cape Town, 7441",
+        "contactPerson": "Mr.Paul Roux",
+        "contactNumber": "0215515551",
+        "workingHours": "09:00 - 21:00",
+        "location": {
+            "latitude": "-26.286615799576364",
+            "longitude": "28.09547056942566"    
+        }
+    },
+    
+    {
+        "id": 30,
+        "storeName": "Cape Gate - Brackenfell",
+        "storeNumber": "Y55895",
+        "storeAddress": "Cape Gate Shopping Precinct Centre, Cnr Okavango & De Bron Road, Brackenfell, Cape Town, 7560",
+        "contactPerson": "Mr.Marli Muller Thuynsma",
+        "contactNumber": "0219831000",
+        "workingHours": "09:00 - 20:00",
+        "location": {
+            "latitude": "-26.286615799576364",
+            "longitude": "28.09547056942566"    
+        }
+    },
+    
+    {
+        "id": 31,
+        "storeName": "Cape Road - Port Elizabeth",
+        "storeNumber": "Y00193",
+        "storeAddress": "289 Cape Road, Newton Park, Port Elizabeth , 6045",
+        "contactPerson": "Ms.Azola Kandanga",
+        "contactNumber": "0413962600",
+        "workingHours": "08:00 - 18:00",
+        "location": {
+            "latitude": "-26.286615799576364",
+            "longitude": "28.09547056942566"    
+        }
+    },
+    
+    {
+        "id": 32,
+        "storeName": "Carlswald - Midrand",
+        "storeNumber": "Y53366",
+        "storeAddress": "Carlswald Lifestyle Centre, Corner New Road and Lever Road Midrand, 1684",
+        "contactPerson": "Mrs .Mwenya Mabaudi",
+        "contactNumber": "0116970800",
+        "workingHours": "09:00 - 18:00",
+        "location": {
+            "latitude": "-26.286615799576364",
+            "longitude": "28.09547056942566"    
+        }
+    },
+    
+    {
+        "id": 33,
+        "storeName": "Cascades Lifestyle Centre - Pietermaritzburg",
+        "storeNumber": "Y60097",
+        "storeAddress": "Cascades Lifestyle Centre, Shop G106, 23 McCarthy Drive, Chase Valley Downs, Pietermaritzburg, 3201",
+        "contactPerson": "Ms.Aadila Haniff",
+        "contactNumber": "0331080108",
+        "workingHours": "08:30 - 18:00",
+        "location": {
+            "latitude": "-26.286615799576364",
+            "longitude": "28.09547056942566"    
+        }
+    },
+    
+    {
+        "id": 34,
+        "storeName": "Castle Gate - Erasmus Kloof",
+        "storeNumber": "Y60058",
+        "storeAddress": "Shop 23, Castle Gate Lifestyle Centre, 478 Koedoesnek Ave, Erasmus Park, Pretoria",
+        "contactPerson": "Ms.Karien Van Staden",
+        "contactNumber": "0125740485",
+        "workingHours": "09:00 - 19:00",
+        "location": {
+            "latitude": "-26.286615799576364",
+            "longitude": "28.09547056942566"    
+        }
+    },
+    
+    {
+        "id": 35,
+        "storeName": "Central Park",
+        "storeNumber": "Y60058",
+        "storeAddress": "Intercare Day Hospital, 3 Park Close, Central Park, Century City, Cape Town",
+        "contactPerson": "Ms.Melandri Kruger",
+        "contactNumber": "0210032947",
+        "workingHours": "08:30 - 17:30",
+        "location": {
+            "latitude": "-26.286615799576364",
+            "longitude": "28.09547056942566"    
+        }
+    }
+    
+]

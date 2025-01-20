@@ -56,7 +56,7 @@ function Header() {
         <div className='hover:bg-gray-100 transition duration-300 ease-out rounded-full p-3
          active:bg-[#237DC0] active:text-white text-[#2C2E74]'>
             <p className='hidden px-2 text-sm md:hidden lg:inline  
-            cursor-pointer' >Buy Online</p>
+            cursor-pointer' >Purchase</p>
         </div>
         <div className='hover:bg-gray-100 transition duration-300 ease-out rounded-full p-3
          active:bg-[#237DC0] text-[#2C2E74] active:text-white'>

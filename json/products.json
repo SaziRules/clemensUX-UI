@@ -6,20 +6,22 @@
     "mainImage": "/uni-pads-main.svg",
     "name": "Clemens® Unisex Pads",
     "slug": "clemens-unisex-pads",
-    "summary": "Superior comfort and protection for severe to very severe incontinence.",
+    "summary": "Superior comfort and protection for light to moderate incontinence.",
     "description": "The Clemens® Unisex Pads range is designed for light bladder weakness and offers quick and efficient absorption for optimal dryness and comfort. They are designed to be worn comfortably and discreetly under normal clothing, with an adhesive strip to hold the pad in place.",
     "size": ["-", "-", "-", "-"],
     "features": 
 [ 
-"Anatomically-shaped for a secure fit", 
-"Elasticated cuffs for protection against leakage", 
-"Super absorbent core to ensure optimum dryness", 
-"Elasticated waist band for added comfort", 
-"Wetness indicator",
-"Re-fastenable flex hook Velcro® tapes for continual readjustment of slip"
+"Soft top sheet for extra comfort and optimum dryness", 
+"Acquisition layer dispereses liquids into the core and prevents rewetting", 
+"Super absorbent core for maximum absorption", 
+"Cloth like backsheet provides increased comfort", 
+"Adhesive strip for secure fit",
+"Elastic threads on sides for extra protection against side leakage"
 ],
 "sizeGuide": [
-"-"
+"Mini Pad",
+"Midi Pad",
+"Maxi Pad"
 ],
 "units": [
 "14 Units"

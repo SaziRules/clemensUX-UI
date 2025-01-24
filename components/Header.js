@@ -55,8 +55,10 @@ function Header() {
       <div className='flex space-x-1 items-center justify-end'>
         <div className='hover:bg-gray-100 transition duration-300 ease-out rounded-full p-3
          active:bg-[#237DC0] active:text-white text-[#2C2E74]'>
+            <Link href={'/stores'}>
             <p className='hidden px-2 text-sm md:hidden lg:inline  
             cursor-pointer' >Purchase</p>
+            </Link>
         </div>
         <div className='hover:bg-gray-100 transition duration-300 ease-out rounded-full p-3
          active:bg-[#237DC0] text-[#2C2E74] active:text-white'>

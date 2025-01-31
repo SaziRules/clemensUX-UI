@@ -85,7 +85,7 @@ export default function ProductPage({ params }) {
           </div>
 
           <div className='flex gap-x-2 pt-4'>
-  <button className="py-2 px-6 text-white bg-[#2C2E74] rounded-md hover:bg-[#1C1E40] transition duration-200 ease-out">
+  <button onClick={() => window.location.href = '/stores'} className="py-2 px-6 text-white bg-[#2C2E74] rounded-md hover:bg-[#1C1E40] transition duration-200 ease-out">
     Buy Now
   </button>
   <a 

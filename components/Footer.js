@@ -46,7 +46,7 @@ A subsidiary of The Lion Match Company (Pty) Ltd</p>
           <p>Phone: <a href="tel:+1234567890" className="hover:underline font-light text-[14px]">0860 546 600</a></p>
           <p className='pt-3 font-light text-[14px]'>20 Mahatma Gandhi Road, Point, Durban, 4000</p>
           <div className="flex space-x-4 mt-3">
-            <a href="#" className="text-white hover:text-gray-200"><FaFacebookF size={20} /></a>
+            <a href="https://web.facebook.com/ClemensSouthAfrica" className="text-white hover:text-gray-200"><FaFacebookF size={20} /></a>
             <a href="#" className="text-white hover:text-gray-200"><FaTwitter size={20} /></a>
             <a href="#" className="text-white hover:text-gray-200"><FaInstagram size={20} /></a>
             <a href="#" className="text-white hover:text-gray-200"><FaLinkedinIn size={20} /></a>

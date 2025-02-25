@@ -29,8 +29,8 @@ export default function Contact() {
       </div>
 
       <h1 className='font-bold mt-4 text-3xl text-[#fff]'>Careline</h1>
-      <p className='font-light text-[#fff] text-[16px] pt-2'>031 308 1763<br />
-sales@validus.co.za</p>
+      <p className='font-light text-[#fff] text-[16px] pt-2'>0860 546 600<br />
+      info@lionmatch.co.za</p>
     </div>
 
     <div className='p-10 sm:w-[48%] md:w-[100%] items-center justify-center text-center bg-gradient-to-b from-sky-500 to-indigo-500'>

@@ -32,9 +32,7 @@ A subsidiary of The Lion Match Company (Pty) Ltd</p>
         <div>
           <h3 className="font-bold text-lg mb-3">More</h3>
           <ul className="space-y-2">
-            <li><Link href="#" className="hover:underline font-light text-[14px]">PAIA Manual</Link></li>
-            <li><Link href="#" className="hover:underline font-light text-[14px]">BEE Certificate</Link></li>
-            <li><Link href="#" className="hover:underline font-light text-[14px]">Supplier Terms & Conditions</Link></li>
+            <li><Link href="BEE-CERT.pdf" target='_blank' className="hover:underline font-light text-[14px]">BEE Certificate</Link></li>
             <li><Link href="#" className="hover:underline font-light text-[14px]">Customer Application Form</Link></li>
           </ul>
         </div>

@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  reactStrictMode: false, // Disable Strict Mode to fix react-beautiful-dnd errors
   images: {
     remotePatterns: [
       {
@@ -7,11 +8,11 @@ const nextConfig = {
         hostname: 'cdn.sanity.io',
       },
     ],
-    domains: ['via.placeholder.com'], // Add this line for placeholder images
+    domains: ['via.placeholder.com'], // Allow placeholder images
   },
-  // Remove the experimental section if it only contained appDir
-  // Add other configurations here if needed
-  
-}
+  compiler: {
+    styledComponents: true, // Enable styled-components support
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

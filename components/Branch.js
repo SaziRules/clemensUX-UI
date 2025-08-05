@@ -1,14 +1,67 @@
-'use client'
+"use client";
 
-import React, { useState } from 'react';
-import stores from '@/json/stores';
+import React, { useState } from "react";
+import storesData from "@/json/stores";
+import { useCMS, useForm, usePlugin } from "tinacms";
 
-const GOOGLE_API_KEY = 'AIzaSyAYF5Ko2EvkimIVHtMXV4rqvI_KD1qJzm8';
+const GOOGLE_API_KEY = "AIzaSyAYF5Ko2EvkimIVHtMXV4rqvI_KD1qJzm8";
 
 function Branch() {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [displayedStores, setDisplayedStores] = useState(2); // Initial store limit
-  const [filteredStores, setFilteredStores] = useState(stores.slice(0, 2));
+  const cms = useCMS();
+
+  // TinaCMS form setup
+  const formConfig = {
+    id: "branchStores",
+    label: "Edit Stores",
+    initialValues: {
+      stores: storesData.map((store) => ({
+        storeName: store.storeName,
+        storeNumber: store.storeNumber,
+        storeAddress: store.storeAddress,
+        contactPerson: store.contactPerson,
+        contactNumber: store.contactNumber,
+        workingHours: store.workingHours,
+        latitude: store.location.latitude,
+        longitude: store.location.longitude,
+      })),
+    },
+    fields: [
+      {
+        name: "stores",
+        label: "Stores",
+        component: "group-list",
+        itemProps: (item) => ({ label: item?.storeName }),
+        defaultItem: () => ({
+          storeName: "New Store",
+          storeNumber: "",
+          storeAddress: "",
+          contactPerson: "",
+          contactNumber: "",
+          workingHours: "",
+          latitude: "",
+          longitude: "",
+        }),
+        fields: [
+          { name: "storeName", label: "Store Name", component: "text" },
+          { name: "storeNumber", label: "Store Number", component: "text" },
+          { name: "storeAddress", label: "Address", component: "textarea" },
+          { name: "contactPerson", label: "Contact Person", component: "text" },
+          { name: "contactNumber", label: "Contact Number", component: "text" },
+          { name: "workingHours", label: "Working Hours", component: "text" },
+          { name: "latitude", label: "Latitude", component: "text" },
+          { name: "longitude", label: "Longitude", component: "text" },
+        ],
+      },
+    ],
+    onSubmit: (values) => console.log("Updated stores:", values),
+  };
+
+  const [formData, form] = useForm(formConfig);
+  usePlugin(form);
+
+  const [searchTerm, setSearchTerm] = useState("");
+  const [displayedStores, setDisplayedStores] = useState(2);
+  const [filteredStores, setFilteredStores] = useState(formData.stores.slice(0, 2));
   const [userLocation, setUserLocation] = useState(null);
   const [selectedStore, setSelectedStore] = useState(filteredStores[0]);
 
@@ -19,21 +72,20 @@ function Branch() {
     const dLon = toRad(lon2 - lon1);
     const a =
       Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-      Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
-    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-    return R * c;
+      Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) *
+      Math.sin(dLon / 2) * Math.sin(dLon / 2);
+    return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
   };
 
   const handleSearch = (e) => {
     const term = e.target.value.toLowerCase();
     setSearchTerm(term);
 
-    const filtered = stores.filter(
+    const filtered = formData.stores.filter(
       (store) =>
         store.storeName.toLowerCase().includes(term) ||
         store.storeAddress.toLowerCase().includes(term)
     );
-
     setFilteredStores(filtered.slice(0, displayedStores));
   };
 
@@ -41,24 +93,22 @@ function Branch() {
     try {
       const response = await fetch(
         `https://www.googleapis.com/geolocation/v1/geolocate?key=${GOOGLE_API_KEY}`,
-        { method: 'POST' }
+        { method: "POST" }
       );
       const data = await response.json();
       const { lat, lng } = data.location;
-
       setUserLocation({ latitude: lat, longitude: lng });
 
       let closestStore = null;
       let shortestDistance = Infinity;
 
-      stores.forEach((store) => {
+      formData.stores.forEach((store) => {
         const distance = calculateDistance(
           lat,
           lng,
-          parseFloat(store.location.latitude),
-          parseFloat(store.location.longitude)
+          parseFloat(store.latitude),
+          parseFloat(store.longitude)
         );
-
         if (distance < shortestDistance) {
           shortestDistance = distance;
           closestStore = store;
@@ -66,10 +116,10 @@ function Branch() {
       });
 
       setSelectedStore(closestStore);
-      setFilteredStores([closestStore]); // Show only the nearest store
+      setFilteredStores([closestStore]);
     } catch (error) {
-      console.error('Geolocation API Error:', error);
-      alert('Unable to retrieve location. Please enable location services.');
+      console.error("Geolocation API Error:", error);
+      alert("Unable to retrieve location. Please enable location services.");
     }
   };
 
@@ -93,9 +143,9 @@ function Branch() {
         </div>
 
         <div className="mt-4">
-          {filteredStores.map((store) => (
+          {filteredStores.map((store, index) => (
             <div
-              key={store.id}
+              key={index}
               onClick={() => setSelectedStore(store)}
               className="p-4 border rounded-md shadow-sm hover:shadow-md transition mb-4 cursor-pointer"
             >
@@ -106,11 +156,11 @@ function Branch() {
             </div>
           ))}
 
-          {filteredStores.length < stores.length && (
+          {filteredStores.length < formData.stores.length && (
             <button
               onClick={() => {
                 setDisplayedStores((prev) => prev + 3);
-                setFilteredStores(stores.slice(0, displayedStores + 3));
+                setFilteredStores(formData.stores.slice(0, displayedStores + 3));
               }}
               className="w-full bg-[#237DC0] text-white py-2 px-4 rounded-md font-medium hover:bg-[#2C2E74] transition duration-300 ease-out mt-4"
             >
@@ -125,7 +175,7 @@ function Branch() {
           {selectedStore && (
             <iframe
               title={selectedStore.storeName}
-              src={`https://www.google.com/maps?q=${selectedStore.location.latitude},${selectedStore.location.longitude}&z=15&output=embed`}
+              src={`https://www.google.com/maps?q=${selectedStore.latitude},${selectedStore.longitude}&z=15&output=embed`}
               width="100%"
               height="100%"
               frameBorder="0"

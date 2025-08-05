@@ -1,35 +1,45 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import Image from 'next/image';
-import Doctors from '@/assets/appointments-bg.png';
-import Modal from '@/components/Modal';
+import React, { useState } from "react";
+import Image from "next/image";
+import Doctors from "@/assets/appointments-bg.png";
+import Modal from "@/components/Modal";
 import { collection, addDoc } from "firebase/firestore";
-import { db } from "@/firebaseConfig"; // Import Firestore configuration
+import { db } from "@/firebaseConfig";
+import { useCMS, useForm, usePlugin } from "tinacms";
 
 const Doctor = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
-    institution: '',
-    contact: '',
-    phone: '',
-    email: '',
-    country: '',
-    province: '',
-    city: '',
-    address: '',
-    incontinence: '',
-    level: '',
-    product: '',
-    size: '',
-    sampleProduct: '',
+    institution: "",
+    contact: "",
+    phone: "",
+    email: "",
+    country: "",
+    province: "",
+    city: "",
+    address: "",
+    incontinence: "",
+    level: "",
+    product: "",
+    size: "",
+    sampleProduct: "",
   });
-
   const [errors, setErrors] = useState({});
 
   const provinces = {
-    "South Africa": ["Western Cape", "Eastern Cape", "Northern Cape", "North West", "Free State", "Gauteng", "KwaZulu-Natal", "Limpopo", "Mpumalanga"],
+    "South Africa": [
+      "Western Cape",
+      "Eastern Cape",
+      "Northern Cape",
+      "North West",
+      "Free State",
+      "Gauteng",
+      "KwaZulu-Natal",
+      "Limpopo",
+      "Mpumalanga",
+    ],
     Mozambique: ["Maputo", "Sofala", "Zambezia", "Inhambane"],
     Namibia: ["Khomas", "Oshana", "Ohangwena", "Erongo"],
     Botswana: ["Gaborone", "Francistown", "Maun", "Serowe"],
@@ -37,7 +47,7 @@ const Doctor = () => {
 
   const updateForm = (key, value) => {
     setFormData((prev) => ({ ...prev, [key]: value }));
-    setErrors((prev) => ({ ...prev, [key]: null })); // Clear error for the field
+    setErrors((prev) => ({ ...prev, [key]: null }));
   };
 
   const validateStep = () => {
@@ -45,8 +55,10 @@ const Doctor = () => {
     if (step === 1) {
       if (!formData.institution) stepErrors.institution = "Institution name is required.";
       if (!formData.contact) stepErrors.contact = "Contact person is required.";
-      if (!formData.phone || !/^\d{10,}$/.test(formData.phone)) stepErrors.phone = "Phone must be numeric and at least 10 digits.";
-      if (!formData.email || !/\S+@\S+\.\S+/.test(formData.email)) stepErrors.email = "A valid email is required.";
+      if (!formData.phone || !/^\d{10,}$/.test(formData.phone))
+        stepErrors.phone = "Phone must be numeric and at least 10 digits.";
+      if (!formData.email || !/\S+@\S+\.\S+/.test(formData.email))
+        stepErrors.email = "A valid email is required.";
     } else if (step === 2) {
       if (!formData.country) stepErrors.country = "Country is required.";
       if (!formData.province) stepErrors.province = "Province is required.";
@@ -94,19 +106,19 @@ const Doctor = () => {
       setIsModalOpen(false);
       setStep(1);
       setFormData({
-        institution: '',
-        contact: '',
-        phone: '',
-        email: '',
-        country: '',
-        province: '',
-        city: '',
-        address: '',
-        incontinence: '',
-        level: '',
-        product: '',
-        size: '',
-        sampleProduct: '',
+        institution: "",
+        contact: "",
+        phone: "",
+        email: "",
+        country: "",
+        province: "",
+        city: "",
+        address: "",
+        incontinence: "",
+        level: "",
+        product: "",
+        size: "",
+        sampleProduct: "",
       });
     } catch (error) {
       console.error("Error submitting form: ", error);
@@ -121,22 +133,51 @@ const Doctor = () => {
         <select
           value={formData[key]}
           onChange={(e) => updateForm(key, e.target.value)}
-          className={`w-full border rounded py-2 px-3 text-[#2C2E74] font-thin ${errors[key] ? "border-red-500" : ""}`}
+          className={`w-full border rounded py-2 px-3 text-[#2C2E74] font-thin ${
+            errors[key] ? "border-red-500" : ""
+          }`}
         >
           <option value="">Select an option</option>
-          {options.map((opt) => <option key={opt} value={opt}>{opt}</option>)}
+          {options.map((opt) => (
+            <option key={opt} value={opt}>
+              {opt}
+            </option>
+          ))}
         </select>
       ) : (
         <input
           type={type}
           value={formData[key]}
           onChange={(e) => updateForm(key, e.target.value)}
-          className={`w-full border rounded py-2 px-3 text-[#2C2E74] font-thin ${errors[key] ? "border-red-500" : ""}`}
+          className={`w-full border rounded py-2 px-3 text-[#2C2E74] font-thin ${
+            errors[key] ? "border-red-500" : ""
+          }`}
         />
       )}
       {errors[key] && <span className="text-red-500 text-sm">{errors[key]}</span>}
     </div>
   );
+
+  // TinaCMS editable text
+  const cms = useCMS();
+  const formConfig = {
+    id: "doctorSection",
+    label: "Doctor Section Content",
+    initialValues: {
+      title: "Are you a medical professional?",
+      paragraph:
+        "If you are an eligible medical professional and not sure which Clemens® product is right for you, your loved one, or your patient, request a FREE sample by clicking the button below to submit a request form.",
+      buttonText: "Get Started",
+    },
+    fields: [
+      { name: "title", label: "Title", component: "text" },
+      { name: "paragraph", label: "Paragraph", component: "textarea" },
+      { name: "buttonText", label: "Button Text", component: "text" },
+    ],
+    onSubmit: (values) => console.log("Updated Doctor Section", values),
+  };
+  const [content, form] = useForm(formConfig);
+  usePlugin(form);
 
   return (
     <div className="flex flex-col lg:flex-row h-auto lg:h-[390px] lg:p-5 gap-5 lg:gap-0">
@@ -145,24 +186,24 @@ const Doctor = () => {
           src={Doctors}
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          style={{ objectFit: 'cover' }}
+          style={{ objectFit: "cover" }}
           alt="Medical professionals"
         />
       </div>
       <div className="flex-1 content-center p-5 bg-gradient-to-l from-sky-500 to-indigo-500 mx-[-2rem] pb-10 sm:mx-[-2rem] lg:mx-0">
         <div className="max-w-md mx-auto">
           <h1 className="text-center text-white text-xl sm:text-2xl lg:text-[35px] font-sans leading-6 sm:leading-7 lg:leading-8 pt-4 sm:pt-7 pb-4 lg:pb-7 font-medium">
-            Are you a medical professional?
+            {content.title}
           </h1>
           <p className="text-center text-white font-thin leading-5 sm:leading-6 pb-5 sm:pb-7 text-sm sm:text-[14px]">
-            If you are an eligible medical professional and not sure which Clemens® product is right for you, your loved one, or your patient, request a FREE sample by clicking the button below to submit a request form.
+            {content.paragraph}
           </p>
           <div className="text-center">
             <button
               className="text-sky-500 bg-white cursor-pointer rounded-full py-2 px-6 hover:scale-105 transform transition duration-300 ease-out inline-block"
               onClick={() => setIsModalOpen(true)}
             >
-              Get Started
+              {content.buttonText}
             </button>
           </div>
         </div>
@@ -172,8 +213,20 @@ const Doctor = () => {
           <div className="relative flex justify-between items-center mb-6">
             {[1, 2, 3, 4].map((num, i) => (
               <React.Fragment key={num}>
-                <div className={`w-10 h-10 rounded-full border-2 ${step >= num ? 'border-blue-500 bg-blue-500 text-white' : 'border-gray-300 bg-white text-gray-500'} flex items-center justify-center`}>{num}</div>
-                {i < 3 && <div className={`flex-1 h-1 ${step > num ? 'bg-blue-500' : 'bg-gray-300'}`} />}
+                <div
+                  className={`w-10 h-10 rounded-full border-2 ${
+                    step >= num
+                      ? "border-blue-500 bg-blue-500 text-white"
+                      : "border-gray-300 bg-white text-gray-500"
+                  } flex items-center justify-center`}
+                >
+                  {num}
+                </div>
+                {i < 3 && (
+                  <div
+                    className={`flex-1 h-1 ${step > num ? "bg-blue-500" : "bg-gray-300"}`}
+                  />
+                )}
               </React.Fragment>
             ))}
           </div>
@@ -197,26 +250,73 @@ const Doctor = () => {
             )}
             {step === 3 && (
               <>
-                {renderInput("Currently experiencing incontinence?", "incontinence", "select", ["Yes", "No", "Not Sure", "Prefer not to say"])}
-                {renderInput("Incontinence Level", "level", "select", ["Light", "Moderate", "Heavy", "Severe"])}
-                {renderInput("What incontinence product are you using?", "product", "select", ["Pads", "Underwear", "Briefs", "Other"])}
-                {renderInput("Waist/Pants Size", "size", "select", ["Small", "Medium", "Large", "Extra Large"])}
+                {renderInput("Currently experiencing incontinence?", "incontinence", "select", [
+                  "Yes",
+                  "No",
+                  "Not Sure",
+                  "Prefer not to say",
+                ])}
+                {renderInput("Incontinence Level", "level", "select", [
+                  "Light",
+                  "Moderate",
+                  "Heavy",
+                  "Severe",
+                ])}
+                {renderInput("What incontinence product are you using?", "product", "select", [
+                  "Pads",
+                  "Underwear",
+                  "Briefs",
+                  "Other",
+                ])}
+                {renderInput("Waist/Pants Size", "size", "select", [
+                  "Small",
+                  "Medium",
+                  "Large",
+                  "Extra Large",
+                ])}
               </>
             )}
             {step === 4 && (
               <>
-                {renderInput("Which product do you wish to sample?", "sampleProduct", "select", ["Protection Pants", "Feminine Protection", "Ultra Slips", "Unisex Pants"])}
-                {renderInput("Size", "size", "select", ["Small", "Medium", "Large", "Extra Large"])}
+                {renderInput("Which product do you wish to sample?", "sampleProduct", "select", [
+                  "Protection Pants",
+                  "Feminine Protection",
+                  "Ultra Slips",
+                  "Unisex Pants",
+                ])}
+                {renderInput("Size", "size", "select", [
+                  "Small",
+                  "Medium",
+                  "Large",
+                  "Extra Large",
+                ])}
               </>
             )}
             <div className="col-span-1 md:col-span-2 flex flex-col space-y-4">
               {step > 1 && (
-                <button type="button" onClick={handlePrev} className="w-full bg-gray-800 text-white py-2 px-6 rounded-full hover:scale-105 transform transition">Previous</button>
+                <button
+                  type="button"
+                  onClick={handlePrev}
+                  className="w-full bg-gray-800 text-white py-2 px-6 rounded-full hover:scale-105 transform transition"
+                >
+                  Previous
+                </button>
               )}
               {step < 4 ? (
-                <button type="button" onClick={handleNext} className="w-full bg-blue-500 text-white py-2 px-6 rounded-full hover:scale-105 transform transition">Next</button>
+                <button
+                  type="button"
+                  onClick={handleNext}
+                  className="w-full bg-blue-500 text-white py-2 px-6 rounded-full hover:scale-105 transform transition"
+                >
+                  Next
+                </button>
               ) : (
-                <button type="submit" className="w-full bg-green-500 text-white py-2 px-6 rounded-full hover:scale-105 transform transition">Finish</button>
+                <button
+                  type="submit"
+                  className="w-full bg-green-500 text-white py-2 px-6 rounded-full hover:scale-105 transform transition"
+                >
+                  Finish
+                </button>
               )}
             </div>
           </form>

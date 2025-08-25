@@ -1,14 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import productsData from "@/json/products";
 import HardProducts from "@/components/HardProducts";
 import HowTo from "@/components/HowTo";
+import { getProductBySlug } from "@/sanity/queries/products";
 
 function Accordion({ title, children }) {
   const [isOpen, setIsOpen] = useState(false);
-
   return (
     <div className="border-b border-[#2C2E74]">
       <div
@@ -26,37 +25,18 @@ function Accordion({ title, children }) {
 }
 
 export default function ProductPage({ params }) {
-  const [slug, setSlug] = useState(null);
+  const [product, setProduct] = useState(null);
 
   useEffect(() => {
-    (async () => {
+    async function fetchProduct() {
       const resolved = await params;
-      setSlug(resolved.slug);
-    })();
+      const data = await getProductBySlug(resolved.slug);
+      setProduct(data);
+    }
+    fetchProduct();
   }, [params]);
 
-  const productIndex = slug
-    ? productsData.findIndex((p) => p.slug === slug)
-    : -1;
-
-  const product =
-    productIndex !== -1
-      ? productsData[productIndex]
-      : {
-          Id: "",
-          name: "",
-          summary: "",
-          description: "",
-          size: [],
-          sizeGuide: [],
-          features: [],
-          units: [],
-          mainImage: "",
-        };
-
-  if (!slug) return <div>Loading...</div>;
-  if (productIndex === -1)
-    return <div>Product not found. Please check the product slug.</div>;
+  if (!product) return <div>Loading...</div>;
 
   return (
     <main className="max-w-7xl mx-auto px-8 pt-[5%] sm:px-16 md:px-0">
@@ -82,7 +62,7 @@ export default function ProductPage({ params }) {
 
           {/* Sizes */}
           <div className="flex gap-2 pt-3 pb-5">
-            {product.size.map((size, index) => (
+            {product.size?.map((size, index) => (
               <p
                 key={index}
                 className="w-[35px] h-[35px] border border-[#2C2E74] rounded-full text-[#2C2E74] text-xs text-center content-center hover:bg-[#2C2E74] hover:text-white transition duration-200 cursor-pointer"
@@ -96,7 +76,7 @@ export default function ProductPage({ params }) {
           <div className="pt-2 pb-6">
             <Accordion title="Size Guide">
               <ul className="list-disc pl-4">
-                {product.sizeGuide.map((guide, index) => (
+                {product.sizeGuide?.map((guide, index) => (
                   <li key={index} className="text-[#2C2E74] text-xs mb-2">
                     {guide}
                   </li>
@@ -106,7 +86,7 @@ export default function ProductPage({ params }) {
 
             <Accordion title="Features">
               <ul className="list-disc pl-4">
-                {product.features.map((feature, index) => (
+                {product.features?.map((feature, index) => (
                   <li key={index} className="text-[#2C2E74] text-xs mb-2">
                     {feature}
                   </li>
@@ -116,7 +96,7 @@ export default function ProductPage({ params }) {
 
             <Accordion title="Units Per Case">
               <ul className="list-disc pl-4">
-                {product.units.map((unit, index) => (
+                {product.units?.map((unit, index) => (
                   <li key={index} className="text-[#2C2E74] text-xs mb-2">
                     {unit}
                   </li>
@@ -167,13 +147,4 @@ export default function ProductPage({ params }) {
       </section>
     </main>
   );
-}
-
-// Keep dynamic params intact
-export async function dynamicParams() {
-  const products = await fetch("https://your-api-endpoint/products");
-  const data = await products.json();
-  return data.map((product) => ({
-    params: { slug: product.slug },
-  }));
 }

@@ -1,38 +1,78 @@
-import React from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import ratingImage from '../public/tick.png'; // Assuming rating.svg is in public folder
-import postsData from '@/json/posts';
+"use client";
 
-const HardPosts = ({ posts }) => {
+import React, { useEffect, useRef, useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { getAllPosts } from "@/sanity/queries/post";
+
+const HardPosts = ({ posts: initialPosts }) => {
+  const scrollRef = useRef(null);
+  const [posts, setPosts] = useState(initialPosts || []);
+
+  useEffect(() => {
+    if (initialPosts?.length) return;
+    (async () => setPosts(await getAllPosts()))();
+  }, [initialPosts]);
+
+  const scroll = (dir) => {
+    if (!scrollRef.current) return;
+    scrollRef.current.scrollBy({
+      left: dir === "left" ? -320 : 320,
+      behavior: "smooth",
+    });
+  };
+
+  if (!posts.length) return <div>Loading posts...</div>;
+
   return (
-    <section className='mb-[5%]'>
-      <div className='flex space-x-3 overflow-x-auto md:pl-5 scrollbar-hide py-4'>
-        {postsData.map((post) => (
-          <div key={post.id} className='cursor-pointer hover:scale-105 transition transform duration-300 ease-out flex-shrink-0 w-[300px]'>
-            <div className='relative h-[210px] w-[full] mb-4'>
+    <section className="relative w-full mb-[5%]">
+      <div className="hidden md:flex justify-end mb-3 pr-4">
+        <button
+          className="bg-white border-[2px] border-[#2C2E74] shadow-md p-2 rounded-full mx-1"
+          onClick={() => scroll("left")}
+          aria-label="Scroll left"
+        >
+          <FaChevronLeft className="text-[#2C2E74]" size={20} />
+        </button>
+        <button
+          className="bg-white border-[2px] border-[#2C2E74] shadow-md p-2 rounded-full"
+          onClick={() => scroll("right")}
+          aria-label="Scroll right"
+        >
+          <FaChevronRight className="text-[#2C2E74]" size={20} />
+        </button>
+      </div>
+
+      <div
+        ref={scrollRef}
+        className="flex space-x-6 overflow-x-auto md:pl-5 scrollbar-hide py-4 px-4 scroll-smooth"
+      >
+        {posts.map((post) => (
+          <div
+            key={post._id}
+            className="cursor-pointer flex-shrink-0 w-[300px] hover:scale-105 transition duration-300"
+          >
+            <div className="relative h-[210px] w-full mb-4">
               <Link href={`/posts/${post.slug}`}>
                 <Image
-                  src={post.image}
-                  alt='Product Image'
+                  src={post.thumbUrl || "/fallback.png"}
+                  alt={post.title}
                   fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  style={{ objectFit: 'cover' }}
-                  className='rounded-xl'
+                  className="rounded-xl object-cover"
                 />
               </Link>
             </div>
-            <h3 className='text-[#2C2E74] text-[20px] leading-6 pb-2 font-normal'>{post.title}</h3>
-            <p className='text-[#2C2E74] text-[14px] font-thin w-[295px] pb-3 leading-5'>{post.excerpt}</p>
-            <button aria-label="View product rating">
-              <Image
-                src={ratingImage}
-                alt='Rating'
-                width={56}
-                height={56}
-                style={{ width: 'auto', height: 'auto' }}
-              />
-            </button>
+
+            <h3 className="text-[#2C2E74] text-[20px] leading-6 pb-2 font-normal">
+              {post.title}
+            </h3>
+
+            {post.excerpt && (
+              <p className="text-[#2C2E74] text-[14px] font-thin w-[295px] leading-5 line-clamp-2">
+                {post.excerpt}
+              </p>
+            )}
           </div>
         ))}
       </div>

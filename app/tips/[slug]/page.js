@@ -4,10 +4,8 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import tipsData from "@/json/tips";
 import HealthTips from "@/components/HealthTips";
-import { useCMS, useForm, usePlugin } from "tinacms";
 
 export default function TipsPage({ params }) {
-  const cms = useCMS();
   const [slug, setSlug] = useState(null);
 
   // Handle Next.js 15 async params
@@ -19,7 +17,7 @@ export default function TipsPage({ params }) {
   }, [params]);
 
   const tipIndex = slug ? tipsData.findIndex((tip) => tip.slug === slug) : -1;
-  const initialTip =
+  const tip =
     tipIndex !== -1
       ? tipsData[tipIndex]
       : {
@@ -33,49 +31,6 @@ export default function TipsPage({ params }) {
           tipTitle: [],
           tips: [],
         };
-
-  // ---- Tina Form Config ----
-  const formConfig = {
-    id: `tip-${initialTip.id || "empty"}`,
-    label: `Edit Tip: ${initialTip.title || "Untitled"}`,
-    initialValues: initialTip,
-    fields: [
-      { name: "title", label: "Title", component: "text" },
-      { name: "slug", label: "Slug", component: "text" },
-      { name: "body", label: "Body", component: "textarea" },
-      { name: "author", label: "Author", component: "text" },
-      { name: "image", label: "Image", component: "text" },
-      { name: "mainImage", label: "Main Image", component: "text" },
-      {
-        name: "tipTitle",
-        label: "Tip Section Titles",
-        component: "list",
-        field: { component: "text" },
-      },
-      {
-        name: "tips",
-        label: "Tips Content",
-        component: "list",
-        field: { component: "textarea" },
-      },
-    ],
-    onSubmit: async (values) => {
-      if (tipIndex !== -1) {
-        const updatedTips = [...tipsData];
-        updatedTips[tipIndex] = values;
-        await fetch("/api/save-tips", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(updatedTips),
-        });
-      }
-    },
-  };
-
-  const [formData, form] = useForm(formConfig);
-  usePlugin(form);
-
-  const tip = cms.enabled ? formData : initialTip;
 
   if (!slug) return <div>Loading...</div>;
   if (tipIndex === -1) return <div>Tip not found</div>;
@@ -103,7 +58,7 @@ export default function TipsPage({ params }) {
         </div>
       </section>
 
-      <hr className="h-px my-8 bg-gray-100 border-[0] dark:bg-gray-100" />
+      <hr className="h-px my-8 bg-gray-100 border-0 dark:bg-gray-100" />
 
       <section className="pt-[3%] pb-[3%]">
         <div className="grid sm:grid-cols-2 items-center gap-5">
@@ -121,7 +76,7 @@ export default function TipsPage({ params }) {
         </div>
       </section>
 
-      <hr className="h-px my-8 bg-gray-100 border-[0] dark:bg-gray-100" />
+      <hr className="h-px my-8 bg-gray-100 border-0 dark:bg-gray-100" />
 
       <section className="pt-[3%]">
         <h3 className="md:pl-10 pl-3 pb-4 md:text-4xl text-2xl text-[#2C2E74] font-bold">

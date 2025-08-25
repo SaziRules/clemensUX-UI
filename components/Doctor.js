@@ -6,7 +6,6 @@ import Doctors from "@/assets/appointments-bg.png";
 import Modal from "@/components/Modal";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "@/firebaseConfig";
-import { useCMS, useForm, usePlugin } from "tinacms";
 
 const Doctor = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -102,7 +101,6 @@ const Doctor = () => {
     try {
       await addDoc(collection(db, "medicalRequests"), formData);
       alert("Form submitted successfully! We're processing your request");
-
       setIsModalOpen(false);
       setStep(1);
       setFormData({
@@ -158,26 +156,11 @@ const Doctor = () => {
     </div>
   );
 
-  // TinaCMS editable text
-  const cms = useCMS();
-  const formConfig = {
-    id: "doctorSection",
-    label: "Doctor Section Content",
-    initialValues: {
-      title: "Are you a medical professional?",
-      paragraph:
-        "If you are an eligible medical professional and not sure which Clemens® product is right for you, your loved one, or your patient, request a FREE sample by clicking the button below to submit a request form.",
-      buttonText: "Get Started",
-    },
-    fields: [
-      { name: "title", label: "Title", component: "text" },
-      { name: "paragraph", label: "Paragraph", component: "textarea" },
-      { name: "buttonText", label: "Button Text", component: "text" },
-    ],
-    onSubmit: (values) => console.log("Updated Doctor Section", values),
-  };
-  const [content, form] = useForm(formConfig);
-  usePlugin(form);
+  // Static section text (previously from TinaCMS)
+  const sectionTitle = "Are you a medical professional?";
+  const sectionParagraph =
+    "If you are an eligible medical professional and not sure which Clemens® product is right for you, your loved one, or your patient, request a FREE sample by clicking the button below to submit a request form.";
+  const buttonText = "Get Started";
 
   return (
     <div className="flex flex-col lg:flex-row h-auto lg:h-[390px] lg:p-5 gap-5 lg:gap-0">
@@ -193,21 +176,22 @@ const Doctor = () => {
       <div className="flex-1 content-center p-5 bg-gradient-to-l from-sky-500 to-indigo-500 mx-[-2rem] pb-10 sm:mx-[-2rem] lg:mx-0">
         <div className="max-w-md mx-auto">
           <h1 className="text-center text-white text-xl sm:text-2xl lg:text-[35px] font-sans leading-6 sm:leading-7 lg:leading-8 pt-4 sm:pt-7 pb-4 lg:pb-7 font-medium">
-            {content.title}
+            {sectionTitle}
           </h1>
           <p className="text-center text-white font-thin leading-5 sm:leading-6 pb-5 sm:pb-7 text-sm sm:text-[14px]">
-            {content.paragraph}
+            {sectionParagraph}
           </p>
           <div className="text-center">
             <button
               className="text-sky-500 bg-white cursor-pointer rounded-full py-2 px-6 hover:scale-105 transform transition duration-300 ease-out inline-block"
               onClick={() => setIsModalOpen(true)}
             >
-              {content.buttonText}
+              {buttonText}
             </button>
           </div>
         </div>
       </div>
+
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
         <div className="w-full max-w-3xl mx-auto p-6">
           <div className="relative flex justify-between items-center mb-6">
@@ -224,14 +208,21 @@ const Doctor = () => {
                 </div>
                 {i < 3 && (
                   <div
-                    className={`flex-1 h-1 ${step > num ? "bg-blue-500" : "bg-gray-300"}`}
+                    className={`flex-1 h-1 ${
+                      step > num ? "bg-blue-500" : "bg-gray-300"
+                    }`}
                   />
                 )}
               </React.Fragment>
             ))}
           </div>
-          <h2 className="text-lg mb-6 text-[#2C2E74] font-bold">Step {step} of 4</h2>
-          <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <h2 className="text-lg mb-6 text-[#2C2E74] font-bold">
+            Step {step} of 4
+          </h2>
+          <form
+            onSubmit={handleSubmit}
+            className="grid grid-cols-1 md:grid-cols-2 gap-6"
+          >
             {step === 1 && (
               <>
                 {renderInput("Institution Name", "institution")}
@@ -243,31 +234,36 @@ const Doctor = () => {
             {step === 2 && (
               <>
                 {renderInput("Country", "country", "select", Object.keys(provinces))}
-                {renderInput("State/Province", "province", "select", formData.country ? provinces[formData.country] : [])}
+                {renderInput(
+                  "State/Province",
+                  "province",
+                  "select",
+                  formData.country ? provinces[formData.country] : []
+                )}
                 {renderInput("City", "city")}
                 {renderInput("Street Address", "address")}
               </>
             )}
             {step === 3 && (
               <>
-                {renderInput("Currently experiencing incontinence?", "incontinence", "select", [
-                  "Yes",
-                  "No",
-                  "Not Sure",
-                  "Prefer not to say",
-                ])}
+                {renderInput(
+                  "Currently experiencing incontinence?",
+                  "incontinence",
+                  "select",
+                  ["Yes", "No", "Not Sure", "Prefer not to say"]
+                )}
                 {renderInput("Incontinence Level", "level", "select", [
                   "Light",
                   "Moderate",
                   "Heavy",
                   "Severe",
                 ])}
-                {renderInput("What incontinence product are you using?", "product", "select", [
-                  "Pads",
-                  "Underwear",
-                  "Briefs",
-                  "Other",
-                ])}
+                {renderInput(
+                  "What incontinence product are you using?",
+                  "product",
+                  "select",
+                  ["Pads", "Underwear", "Briefs", "Other"]
+                )}
                 {renderInput("Waist/Pants Size", "size", "select", [
                   "Small",
                   "Medium",
@@ -278,12 +274,12 @@ const Doctor = () => {
             )}
             {step === 4 && (
               <>
-                {renderInput("Which product do you wish to sample?", "sampleProduct", "select", [
-                  "Protection Pants",
-                  "Feminine Protection",
-                  "Ultra Slips",
-                  "Unisex Pants",
-                ])}
+                {renderInput(
+                  "Which product do you wish to sample?",
+                  "sampleProduct",
+                  "select",
+                  ["Protection Pants", "Feminine Protection", "Ultra Slips", "Unisex Pants"]
+                )}
                 {renderInput("Size", "size", "select", [
                   "Small",
                   "Medium",

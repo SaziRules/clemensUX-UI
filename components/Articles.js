@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
-import { client, urlFor } from '@/lib/sanity'
 import tick from '@/assets/tick.png'
 
 function Articles() {

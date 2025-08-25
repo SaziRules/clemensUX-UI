@@ -3,7 +3,6 @@ import "./globals.css";
 import Header from "@/components/Header";
 import MobileNav from "@/components/MobileNav";
 import Footer from "@/components/Footer";
-import TinaWrapper from "./TinaWrapper";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,12 +15,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className="scroll-smooth">
       <body className={inter.className}>
-        <TinaWrapper>
           <Header />
           <MobileNav />
           {children}
           <Footer />
-        </TinaWrapper>
       </body>
     </html>
   );

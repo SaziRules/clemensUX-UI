@@ -2,68 +2,17 @@
 
 import React, { useState } from "react";
 import storesData from "@/json/stores";
-import { useCMS, useForm, usePlugin } from "tinacms";
 
 const GOOGLE_API_KEY = "AIzaSyAYF5Ko2EvkimIVHtMXV4rqvI_KD1qJzm8";
 
 function Branch() {
-  const cms = useCMS();
-
-  // TinaCMS form setup
-  const formConfig = {
-    id: "branchStores",
-    label: "Edit Stores",
-    initialValues: {
-      stores: storesData.map((store) => ({
-        storeName: store.storeName,
-        storeNumber: store.storeNumber,
-        storeAddress: store.storeAddress,
-        contactPerson: store.contactPerson,
-        contactNumber: store.contactNumber,
-        workingHours: store.workingHours,
-        latitude: store.location.latitude,
-        longitude: store.location.longitude,
-      })),
-    },
-    fields: [
-      {
-        name: "stores",
-        label: "Stores",
-        component: "group-list",
-        itemProps: (item) => ({ label: item?.storeName }),
-        defaultItem: () => ({
-          storeName: "New Store",
-          storeNumber: "",
-          storeAddress: "",
-          contactPerson: "",
-          contactNumber: "",
-          workingHours: "",
-          latitude: "",
-          longitude: "",
-        }),
-        fields: [
-          { name: "storeName", label: "Store Name", component: "text" },
-          { name: "storeNumber", label: "Store Number", component: "text" },
-          { name: "storeAddress", label: "Address", component: "textarea" },
-          { name: "contactPerson", label: "Contact Person", component: "text" },
-          { name: "contactNumber", label: "Contact Number", component: "text" },
-          { name: "workingHours", label: "Working Hours", component: "text" },
-          { name: "latitude", label: "Latitude", component: "text" },
-          { name: "longitude", label: "Longitude", component: "text" },
-        ],
-      },
-    ],
-    onSubmit: (values) => console.log("Updated stores:", values),
-  };
-
-  const [formData, form] = useForm(formConfig);
-  usePlugin(form);
-
   const [searchTerm, setSearchTerm] = useState("");
   const [displayedStores, setDisplayedStores] = useState(2);
-  const [filteredStores, setFilteredStores] = useState(formData.stores.slice(0, 2));
+  const [filteredStores, setFilteredStores] = useState(
+    storesData.slice(0, 2)
+  );
   const [userLocation, setUserLocation] = useState(null);
-  const [selectedStore, setSelectedStore] = useState(filteredStores[0]);
+  const [selectedStore, setSelectedStore] = useState(storesData[0]);
 
   const calculateDistance = (lat1, lon1, lat2, lon2) => {
     const toRad = (value) => (value * Math.PI) / 180;
@@ -72,8 +21,10 @@ function Branch() {
     const dLon = toRad(lon2 - lon1);
     const a =
       Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-      Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) *
-      Math.sin(dLon / 2) * Math.sin(dLon / 2);
+      Math.cos(toRad(lat1)) *
+        Math.cos(toRad(lat2)) *
+        Math.sin(dLon / 2) *
+        Math.sin(dLon / 2);
     return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
   };
 
@@ -81,7 +32,7 @@ function Branch() {
     const term = e.target.value.toLowerCase();
     setSearchTerm(term);
 
-    const filtered = formData.stores.filter(
+    const filtered = storesData.filter(
       (store) =>
         store.storeName.toLowerCase().includes(term) ||
         store.storeAddress.toLowerCase().includes(term)
@@ -102,12 +53,12 @@ function Branch() {
       let closestStore = null;
       let shortestDistance = Infinity;
 
-      formData.stores.forEach((store) => {
+      storesData.forEach((store) => {
         const distance = calculateDistance(
           lat,
           lng,
-          parseFloat(store.latitude),
-          parseFloat(store.longitude)
+          parseFloat(store.location.latitude),
+          parseFloat(store.location.longitude)
         );
         if (distance < shortestDistance) {
           shortestDistance = distance;
@@ -125,6 +76,7 @@ function Branch() {
 
   return (
     <section className="flex flex-col md:flex-row gap-8 px-4">
+      {/* Left column */}
       <div className="w-full md:w-1/2">
         <div className="flex items-center gap-2 mb-5">
           <input
@@ -151,16 +103,22 @@ function Branch() {
             >
               <h3 className="font-bold text-[#2C2E74]">{store.storeName}</h3>
               <p className="text-sm text-gray-600">{store.storeAddress}</p>
-              <p className="text-sm text-gray-500">Contact: {store.contactPerson}</p>
-              <p className="text-sm text-gray-500">Hours: {store.workingHours}</p>
+              <p className="text-sm text-gray-500">
+                Contact: {store.contactPerson}
+              </p>
+              <p className="text-sm text-gray-500">
+                Hours: {store.workingHours}
+              </p>
             </div>
           ))}
 
-          {filteredStores.length < formData.stores.length && (
+          {filteredStores.length < storesData.length && (
             <button
               onClick={() => {
                 setDisplayedStores((prev) => prev + 3);
-                setFilteredStores(formData.stores.slice(0, displayedStores + 3));
+                setFilteredStores(
+                  storesData.slice(0, displayedStores + 3)
+                );
               }}
               className="w-full bg-[#237DC0] text-white py-2 px-4 rounded-md font-medium hover:bg-[#2C2E74] transition duration-300 ease-out mt-4"
             >
@@ -170,17 +128,18 @@ function Branch() {
         </div>
       </div>
 
+      {/* Right column: Map */}
       <div className="w-full md:w-1/2">
         <div className="h-[500px] bg-gray-100 rounded-md shadow-md">
           {selectedStore && (
             <iframe
               title={selectedStore.storeName}
-              src={`https://www.google.com/maps?q=${selectedStore.latitude},${selectedStore.longitude}&z=15&output=embed`}
+              src={`https://www.google.com/maps?q=${selectedStore.location.latitude},${selectedStore.location.longitude}&z=15&output=embed`}
               width="100%"
               height="100%"
               frameBorder="0"
               style={{ border: 0 }}
-              allowFullScreen=""
+              allowFullScreen
             ></iframe>
           )}
         </div>

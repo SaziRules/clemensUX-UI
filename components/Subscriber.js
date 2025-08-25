@@ -4,8 +4,7 @@ import React, { useState } from "react";
 import Subscription from "@/assets/subscriber.png";
 import Image from "next/image";
 import { collection, addDoc } from "firebase/firestore";
-import { db } from "@/firebaseConfig"; // Import Firestore configuration
-import { useCMS, useForm, usePlugin } from "tinacms";
+import { db } from "@/firebaseConfig"; // your Firestore config
 
 const Subscriber = () => {
   const [name, setName] = useState("");
@@ -14,25 +13,9 @@ const Subscriber = () => {
   const [successMessage, setSuccessMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // --- TinaCMS Editable Content ---
-  const cms = useCMS();
-  const formConfig = {
-    id: "subscriberContent",
-    label: "Subscriber Section",
-    initialValues: {
-      heading: "Join our mailing list and live every moment with confidence!",
-      button: "Subscribe",
-    },
-    fields: [
-      { name: "heading", label: "Heading", component: "text" },
-      { name: "button", label: "Button Text", component: "text" },
-    ],
-    onSubmit: (values) => console.log("Updated Subscriber content", values),
-  };
-
-  const [content, form] = useForm(formConfig);
-  usePlugin(form);
-  // -------------------------------
+  // Static editable text (replace with JSON later if you want easy editing)
+  const heading = "Join our mailing list and live every moment with confidence!";
+  const buttonText = "Subscribe";
 
   const validateForm = () => {
     const newErrors = {};
@@ -79,7 +62,7 @@ const Subscriber = () => {
       {/* Form Section */}
       <div className="flex-1 content-center p-5 bg-gradient-to-l from-sky-500 to-indigo-500 mx-[-2rem] sm:mx-[-2rem] lg:mx-0">
         <h1 className="text-center text-white text-xl sm:text-2xl lg:text-[35px] mx-auto font-sans leading-6 pt-4 sm:pt-7 lg:leading-8 lg:w-[550px] pb-4 lg:pb-7 font-medium m-0">
-          {content.heading}
+          {heading}
         </h1>
         <form
           onSubmit={handleSubscribe}
@@ -110,7 +93,7 @@ const Subscriber = () => {
             className="bg-white text-sky-500 rounded-full px-5 py-2 text-sm font-medium hover:bg-[#2C2E74] hover:text-white transition duration-300 ease-out w-full"
             disabled={isSubmitting}
           >
-            {isSubmitting ? "Subscribing..." : content.button}
+            {isSubmitting ? "Subscribing..." : buttonText}
           </button>
           {errors.general && (
             <p className="text-red-500 text-sm mt-2">{errors.general}</p>
@@ -123,7 +106,12 @@ const Subscriber = () => {
 
       {/* Image Section */}
       <div className="hidden lg:block relative flex-1 items-center justify-center p-5 h-full">
-        <Image src={Subscription} fill style={{ objectFit: "cover" }} alt="Promo image" />
+        <Image
+          src={Subscription}
+          fill
+          style={{ objectFit: "cover" }}
+          alt="Promo image"
+        />
       </div>
     </div>
   );

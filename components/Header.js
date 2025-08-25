@@ -10,51 +10,19 @@ import {
 import logo from "@/assets/logo.png";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useCMS, useForm, usePlugin } from "tinacms";
 
-const defaultNav = {
-  navLinks: [
-    { name: "Products", href: "/products" },
-    { name: "About us", href: "/about" },
-    { name: "Articles", href: "/articles" },
-    { name: "Health tips", href: "/healthTips" },
-    { name: "Contact us", href: "/contact" },
-  ],
-  purchaseLabel: "Purchase",
-};
+const navLinks = [
+  { name: "Products", href: "/products" },
+  { name: "About us", href: "/about" },
+  { name: "Articles", href: "/articles" },
+  { name: "Health tips", href: "/healthTips" },
+  { name: "Contact us", href: "/contact" },
+];
+
+const purchaseLabel = "Purchase";
 
 function Header() {
-  const cms = useCMS();
   const pathname = usePathname();
-
-  // TinaCMS form setup
-  const formConfig = {
-    id: "headerForm",
-    label: "Edit Header Navigation",
-    initialValues: defaultNav,
-    fields: [
-      {
-        name: "navLinks",
-        label: "Navigation Links",
-        component: "group-list",
-        itemProps: (item) => ({ label: item?.name }),
-        defaultItem: () => ({ name: "New Link", href: "/" }),
-        fields: [
-          { name: "name", label: "Link Name", component: "text" },
-          { name: "href", label: "Link URL", component: "text" },
-        ],
-      },
-      {
-        name: "purchaseLabel",
-        label: "Purchase Button Text",
-        component: "text",
-      },
-    ],
-    onSubmit: (values) => console.log("Updated Header:", values),
-  };
-
-  const [formData, form] = useForm(formConfig);
-  usePlugin(form);
 
   return (
     <nav
@@ -80,7 +48,7 @@ function Header() {
         className="flex-grow md:flex items-center justify-between md:border md:shadow-sm rounded-full py-1
         md:hover:shadow-md transition duration-300 ease-out hover:divide-x-0 px-1"
       >
-        {formData.navLinks.map((link, i) => (
+        {navLinks.map((link, i) => (
           <Link
             key={i}
             href={link.href}
@@ -106,7 +74,7 @@ function Header() {
         >
           <Link href={"/stores"}>
             <p className="hidden px-2 text-sm md:hidden lg:inline cursor-pointer">
-              {formData.purchaseLabel}
+              {purchaseLabel}
             </p>
           </Link>
         </div>

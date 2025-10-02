@@ -79,7 +79,7 @@ const HardProducts = () => {
             <h3 className="text-[#2C2E74] text-[24px] font-normal">
               {product.name}
             </h3>
-            <p className="text-[#2C2E74] text-[14px] font-thin w-[295px] pb-3 leading-5">
+            <p className="text-[#2C2E74] text-[14px] font-extralight w-[295px] pb-3 leading-5">
               {Array.isArray(product.summary) ? (
                 <PortableText value={product.summary} components={ptComponents} />
               ) : (

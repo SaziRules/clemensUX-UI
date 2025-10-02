@@ -1,15 +1,17 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import Doctors from "@/assets/appointments-bg.png";
 import Modal from "@/components/Modal";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "@/firebaseConfig";
+import { getDoctorSection } from "@/sanity/queries/doctorSection";
 
 const Doctor = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [step, setStep] = useState(1);
+  const [section, setSection] = useState(null);
+
   const [formData, setFormData] = useState({
     institution: "",
     contact: "",
@@ -26,6 +28,14 @@ const Doctor = () => {
     sampleProduct: "",
   });
   const [errors, setErrors] = useState({});
+
+  // Fetch section content from Sanity
+  useEffect(() => {
+    (async () => {
+      const data = await getDoctorSection();
+      setSection(data);
+    })();
+  }, []);
 
   const provinces = {
     "South Africa": [
@@ -156,42 +166,41 @@ const Doctor = () => {
     </div>
   );
 
-  // Static section text (previously from TinaCMS)
-  const sectionTitle = "Are you a medical professional?";
-  const sectionParagraph =
-    "If you are an eligible medical professional and not sure which Clemens® product is right for you, your loved one, or your patient, request a FREE sample by clicking the button below to submit a request form.";
-  const buttonText = "Get Started";
+  if (!section) return null;
 
   return (
     <div className="flex flex-col lg:flex-row h-auto lg:h-[390px] lg:p-5 gap-5 lg:gap-0">
       <div className="hidden lg:block relative flex-1 items-center justify-center p-5">
-        <Image
-          src={Doctors}
-          fill
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          style={{ objectFit: "cover" }}
-          alt="Medical professionals"
-        />
+        {section.image && (
+          <Image
+            src={section.image}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            style={{ objectFit: "cover" }}
+            alt={section.title}
+          />
+        )}
       </div>
       <div className="flex-1 content-center p-5 bg-gradient-to-l from-sky-500 to-indigo-500 mx-[-2rem] pb-10 sm:mx-[-2rem] lg:mx-0">
         <div className="max-w-md mx-auto">
           <h1 className="text-center text-white text-xl sm:text-2xl lg:text-[35px] font-sans leading-6 sm:leading-7 lg:leading-8 pt-4 sm:pt-7 pb-4 lg:pb-7 font-medium">
-            {sectionTitle}
+            {section.title}
           </h1>
           <p className="text-center text-white font-thin leading-5 sm:leading-6 pb-5 sm:pb-7 text-sm sm:text-[14px]">
-            {sectionParagraph}
+            {section.paragraph}
           </p>
           <div className="text-center">
             <button
               className="text-sky-500 bg-white cursor-pointer rounded-full py-2 px-6 hover:scale-105 transform transition duration-300 ease-out inline-block"
               onClick={() => setIsModalOpen(true)}
             >
-              {buttonText}
+              {section.buttonText || "Get Started"}
             </button>
           </div>
         </div>
       </div>
 
+      {/* Modal with working form */}
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
         <div className="w-full max-w-3xl mx-auto p-6">
           <div className="relative flex justify-between items-center mb-6">
@@ -288,6 +297,7 @@ const Doctor = () => {
                 ])}
               </>
             )}
+
             <div className="col-span-1 md:col-span-2 flex flex-col space-y-4">
               {step > 1 && (
                 <button

@@ -1,20 +1,24 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ContactForm from "@/components/ContactForm";
 import { ImOffice } from "react-icons/im";
 import { HiMicrophone } from "react-icons/hi";
 import { BsEnvelopePaperFill } from "react-icons/bs";
+import { getContact } from "@/sanity/queries/contact";
 
 export default function Contact() {
-  const contactData = {
-    officeTitle: "Head Office",
-    officeAddress: "20 Mahatma Gandhi Road,\nDurban 4001",
-    carelineTitle: "Careline",
-    carelineContent: "0860 546 600\ninfo@lionmatch.co.za",
-    writeTitle: "Write to us",
-    writeAddress: "PO Box 918, Durban 4000",
-  };
+  const [contactData, setContactData] = useState(null);
+
+  useEffect(() => {
+    async function fetchData() {
+      const data = await getContact();
+      setContactData(data);
+    }
+    fetchData();
+  }, []);
+
+  if (!contactData) return <div className="p-10">Loading contact info...</div>;
 
   return (
     <main className="max-w-7xl mx-[auto] px-8 sm:px-16 md:px-0">

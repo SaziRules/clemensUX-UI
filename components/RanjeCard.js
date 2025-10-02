@@ -1,58 +1,22 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-
-// Import images (static)
-import consumer from "@/assets/consumer.png";
-import pro from "@/assets/pro.png";
-import extras from "@/assets/extras.png";
-import buy from "@/assets/buy.png";
-import tips from "@/assets/tips.png";
-
-const ranges = [
-  {
-    src: consumer,
-    title: "Consumer Range",
-    description: "Comfort and protection for consumer incontinence.",
-    link: "/products",
-  },
-  {
-    src: pro,
-    title: "Professional Range",
-    description: "Professional incontinence product range, your partner for over 18 years.",
-    link: "/products",
-  },
-  {
-    src: extras,
-    title: "Accessories",
-    description: "The latest absorbency technology to keep you dry, day and night.",
-    link: "/accessories",
-  },
-  {
-    src: buy,
-    title: "Where to buy",
-    description: "You can find Clemens® products in pharmacies and popular retail stores.",
-    link: "/stores",
-  },
-  {
-    src: tips,
-    title: "What to buy",
-    description: "Practical advice, support, and resources to manage incontinence.",
-    link: "/healthTips",
-  },
-  {
-    src: pro,
-    title: "Knowledge Hub",
-    description: "Connect with others who understand and share your experiences.",
-    link: "/articles",
-  },
-];
+import { getAllRanges } from "@/sanity/queries/range";
 
 export default function RanjeCard() {
   const scrollRef = useRef(null);
+  const [ranges, setRanges] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      const data = await getAllRanges();
+      setRanges(data);
+    }
+    fetchData();
+  }, []);
 
   const scroll = (direction) => {
     if (scrollRef.current) {
@@ -64,9 +28,11 @@ export default function RanjeCard() {
     }
   };
 
+  if (!ranges.length) return <div>Loading ranges...</div>;
+
   return (
     <div className="relative w-full">
-      {/* Arrows Container (Hidden on Mobile) */}
+      {/* Arrows (desktop only) */}
       <div className="hidden md:flex justify-end mb-3 pr-4">
         <button
           className="bg-white border-[2px] border-[#2C2E74] shadow-md p-2 rounded-full hover:bg-gray-100 transition mx-1"
@@ -84,21 +50,21 @@ export default function RanjeCard() {
         </button>
       </div>
 
-      {/* Scrollable Content */}
+      {/* Scrollable list */}
       <div
         ref={scrollRef}
         className="flex space-x-6 overflow-x-auto md:pl-5 scrollbar-hide py-4 px-4 scroll-smooth"
       >
-        {ranges.map((range, index) => (
+        {ranges.map((range) => (
           <Link
-            key={index}
-            href={range.link}
+            key={range._id}
+            href={range.link || "#"}
             className="cursor-pointer flex-shrink-0 w-[300px]"
           >
             <div className="hover:scale-105 transition transform duration-300 ease-out">
               <div className="relative h-[310px] w-full mb-4">
                 <Image
-                  src={range.src}
+                  src={range.image || "/fallback.png"}
                   alt={range.title}
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

@@ -69,7 +69,7 @@ const HardPosts = ({ posts: initialPosts }) => {
             </h3>
 
             {post.excerpt && (
-              <p className="text-[#2C2E74] text-[14px] font-thin w-[295px] leading-5 line-clamp-2">
+              <p className="text-[#2C2E74] text-[14px] font-extralight w-[295px] leading-5 line-clamp-2">
                 {post.excerpt}
               </p>
             )}

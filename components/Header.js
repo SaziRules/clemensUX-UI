@@ -7,7 +7,7 @@ import {
   UserCircleIcon,
   GlobeAltIcon,
 } from "@heroicons/react/solid";
-import logo from "@/assets/logo.png";
+import logo from '@/public/logo.png';
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 

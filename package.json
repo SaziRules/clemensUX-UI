@@ -39,6 +39,6 @@
   "packageManager": "npm@10.9.0",
   "engines": {
     "node": "20.x",
-    "npm": "9.x"
+    "npm": ">=9 <11"
   }
 }

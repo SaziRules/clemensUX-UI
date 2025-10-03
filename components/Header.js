@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import {
   MenuIcon,
@@ -20,16 +20,22 @@ const navLinks = [
 
 const purchaseLabel = "Purchase";
 
-export default function Header() {
+function Header() {
   const pathname = usePathname();
+  const [isStudio, setIsStudio] = useState(false);
 
-  // 🔹 Hide Header on Sanity Studio routes
-  if (pathname?.startsWith("/studio")) return null;
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.location.pathname.startsWith("/studio")) {
+      setIsStudio(true);
+    }
+  }, []);
+
+  if (isStudio) return null; // 🔹 don’t render in Studio
 
   return (
     <nav
       className="hidden sticky top-0 z-50 lg:grid grid-cols-[25%_50%_25%] bg-white 
-      border justify-between p-4 md:px-20"
+    border justify-between p-4 md:px-20"
     >
       {/* Left */}
       <Link
@@ -74,7 +80,7 @@ export default function Header() {
           className="hover:bg-gray-100 transition duration-300 ease-out rounded-full p-3
          active:bg-[#237DC0] active:text-white text-[#2C2E74]"
         >
-          <Link href="/stores">
+          <Link href={"/stores"}>
             <p className="hidden px-2 text-sm md:hidden lg:inline cursor-pointer">
               {purchaseLabel}
             </p>
@@ -91,10 +97,12 @@ export default function Header() {
           className="flex items-center space-x-0.8 border p-0.5 rounded-full 
         hover:shadow-md cursor-pointer transition ease-out duration-300"
         >
-          <MenuIcon className="h-4 text-[#2C2E74] mx-2 active:text-[#237DC0]" />
-          <UserCircleIcon className="h-10 text-[#2C2E74] mx-0.5 active:text-[#237DC0]" />
+          <MenuIcon className="h-4 text-[#2C2E74] mx-2 active:text-[#237DC0] transition ease-out duration-300" />
+          <UserCircleIcon className="h-10 text-[#2C2E74] mx-0.5 active:text-[#237DC0] transition ease-out duration-300" />
         </div>
       </div>
     </nav>
   );
 }
+
+export default Header;

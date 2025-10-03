@@ -36,20 +36,21 @@ export default async function PostPage({ params }) {
             <Image
               src={post.mainImage}
               alt={post.title}
-              width={500}
+              width={800}
               height={500}
-              className="w-full sm:w-[500px] object-center object-contain rounded-lg"
+              className="w-full sm:w-[800px] object-center object-contain rounded-lg"
               priority
             />
           )}
         </div>
 
-        <div className="flex-1 sm:pl-8 lg:ml-[-80px] md:pl-0 sm:pr-8 text-[#2C2E74]">
+        <div className="flex-1 sm:pl-2 lg:ml-[25px] md:pl-0 sm:pr-8 text-[#2C2E74]">
           <h1 className="font-bold text-2xl sm:text-3xl md:text-5xl mb-3">
             {post.title}
           </h1>
+          <Image src="/tick.png" alt="tick" width={100} height={25} className="inline-block mr-2 mb-1" />
 
-          {post.excerpt && <p className="mb-4 italic">{post.excerpt}</p>}
+          {post.excerpt && <p className="mb-4">{post.excerpt}</p>}
 
           {post.body && (
             <div className="prose prose-slate max-w-none">

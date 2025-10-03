@@ -11,11 +11,18 @@ import { ptComponents } from "@/sanity/lib/portableText";
 const HardProducts = () => {
   const scrollRef = useRef(null);
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchData() {
-      const data = await getAllProducts();
-      setProducts(data);
+      try {
+        const data = await getAllProducts();
+        setProducts(data);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      } finally {
+        setLoading(false);
+      }
     }
     fetchData();
   }, []);
@@ -29,8 +36,6 @@ const HardProducts = () => {
       });
     }
   };
-
-  if (!products.length) return <div>Loading products...</div>;
 
   return (
     <section className="relative w-full mb-[5%]">
@@ -57,41 +62,54 @@ const HardProducts = () => {
         ref={scrollRef}
         className="flex space-x-6 overflow-x-auto md:pl-5 scrollbar-hide py-4 px-4 scroll-smooth"
       >
-        {products.map((product) => (
-          <div
-            key={product._id}
-            className="cursor-pointer flex-shrink-0 w-[300px] hover:scale-105 transition transform duration-300 ease-out"
-          >
-            <div className="relative h-[310px] w-full mb-4">
-              <Link href={`/product/${product.slug}`}>
-                <Image
-                  src={product.image}
-                  alt={product.name}
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="rounded-3xl object-cover"
-                />
-              </Link>
-            </div>
+        {loading
+          ? // 🔹 Skeleton Loader (show 4 while loading)
+            Array.from({ length: 4 }).map((_, idx) => (
+              <div
+                key={idx}
+                className="cursor-pointer flex-shrink-0 w-[300px] animate-pulse"
+              >
+                <div className="relative h-[310px] w-full mb-4 bg-gray-200 rounded-3xl"></div>
+                <div className="h-6 bg-gray-200 w-3/4 rounded mb-2"></div>
+                <div className="h-4 bg-gray-200 w-full rounded mb-4"></div>
+                <div className="h-10 w-10 bg-gray-200 rounded-full"></div>
+              </div>
+            ))
+          : products.map((product) => (
+              <div
+                key={product._id}
+                className="cursor-pointer flex-shrink-0 w-[300px] hover:scale-105 transition transform duration-300 ease-out"
+              >
+                <div className="relative h-[310px] w-full mb-4">
+                  <Link href={`/product/${product.slug}`}>
+                    <Image
+                      src={product.image}
+                      alt={product.name}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="rounded-3xl object-cover"
+                    />
+                  </Link>
+                </div>
 
-            {/* Product Details */}
-            <h3 className="text-[#2C2E74] text-[24px] font-normal">
-              {product.name}
-            </h3>
-            <p className="text-[#2C2E74] text-[14px] font-extralight w-[295px] pb-3 leading-5">
-              {Array.isArray(product.summary) ? (
-                <PortableText value={product.summary} components={ptComponents} />
-              ) : (
-                typeof product.summary === "string" && product.summary
-              )}
-            </p>
+                {/* Product Details */}
+                <h3 className="text-[#2C2E74] text-[24px] font-normal">
+                  {product.name}
+                </h3>
+                <p className="text-[#2C2E74] text-[14px] font-extralight w-[295px] pb-3 leading-5">
+                  {Array.isArray(product.summary) ? (
+                    <PortableText value={product.summary} components={ptComponents} />
+                  ) : (
+                    typeof product.summary === "string" && product.summary
+                  )}
+                </p>
 
-            {/* Rating Button */}
-            <button aria-label="View product rating">
-              <Image src="/rating.svg" alt="Rating" width={56} height={56} />
-            </button>
-          </div>
-        ))}
+                {/* Rating Button */}
+                <button aria-label="View product rating">
+                  <Image src="/rating.svg" alt="Rating" width={56} height={56} />
+                </button>
+              </div>
+            ))}
       </div>
     </section>
   );

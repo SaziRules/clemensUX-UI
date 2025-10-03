@@ -26,6 +26,7 @@ const Doctor = () => {
     product: "",
     size: "",
     sampleProduct: "",
+    sampleSize: "",
   });
   const [errors, setErrors] = useState({});
 
@@ -80,7 +81,7 @@ const Doctor = () => {
       if (!formData.size) stepErrors.size = "Waist/Pants size is required.";
     } else if (step === 4) {
       if (!formData.sampleProduct) stepErrors.sampleProduct = "Sample product is required.";
-      if (!formData.size) stepErrors.size = "Size is required.";
+      if (!formData.sampleSize) stepErrors.sampleSize = "Sample size is required.";
     }
     return stepErrors;
   };
@@ -90,6 +91,12 @@ const Doctor = () => {
     const stepErrors = validateStep();
     if (Object.keys(stepErrors).length > 0) {
       setErrors(stepErrors);
+
+      // Scroll to first error
+      const firstErrorKey = Object.keys(stepErrors)[0];
+      const el = document.querySelector(`[name="${firstErrorKey}"]`);
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
+
       return;
     }
     setStep((prev) => Math.min(prev + 1, 4));
@@ -127,6 +134,7 @@ const Doctor = () => {
         product: "",
         size: "",
         sampleProduct: "",
+        sampleSize: "",
       });
     } catch (error) {
       console.error("Error submitting form: ", error);
@@ -139,6 +147,7 @@ const Doctor = () => {
       <label className="block text-[#2C2E74] font-medium mb-2">{label}</label>
       {options ? (
         <select
+          name={key}
           value={formData[key]}
           onChange={(e) => updateForm(key, e.target.value)}
           className={`w-full border rounded py-2 px-3 text-[#2C2E74] font-thin ${
@@ -154,6 +163,7 @@ const Doctor = () => {
         </select>
       ) : (
         <input
+          name={key}
           type={type}
           value={formData[key]}
           onChange={(e) => updateForm(key, e.target.value)}
@@ -166,7 +176,19 @@ const Doctor = () => {
     </div>
   );
 
-  if (!section) return null;
+  // 🔹 Skeleton while Sanity loads
+  if (!section) {
+    return (
+      <div className="flex flex-col lg:flex-row h-auto lg:h-[390px] lg:p-5 gap-5 lg:gap-0 animate-pulse">
+        <div className="hidden lg:block flex-1 bg-gray-200 rounded"></div>
+        <div className="flex-1 p-5 bg-gradient-to-l from-sky-500 to-indigo-500">
+          <div className="h-6 bg-white/40 w-3/4 rounded mb-4"></div>
+          <div className="h-4 bg-white/30 w-full rounded mb-4"></div>
+          <div className="h-10 w-32 bg-white/50 rounded mx-auto"></div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="flex flex-col lg:flex-row h-auto lg:h-[390px] lg:p-5 gap-5 lg:gap-0">
@@ -289,7 +311,7 @@ const Doctor = () => {
                   "select",
                   ["Protection Pants", "Feminine Protection", "Ultra Slips", "Unisex Pants"]
                 )}
-                {renderInput("Size", "size", "select", [
+                {renderInput("Sample Size", "sampleSize", "select", [
                   "Small",
                   "Medium",
                   "Large",

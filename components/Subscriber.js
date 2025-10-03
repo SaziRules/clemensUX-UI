@@ -14,11 +14,18 @@ const Subscriber = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const [content, setContent] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchContent() {
-      const data = await getSubscriberContent();
-      setContent(data);
+      try {
+        const data = await getSubscriberContent();
+        setContent(data);
+      } catch (err) {
+        console.error("Error fetching subscriber content:", err);
+      } finally {
+        setLoading(false);
+      }
     }
     fetchContent();
   }, []);
@@ -48,11 +55,11 @@ const Subscriber = () => {
     setIsSubmitting(true);
     try {
       await addDoc(collection(db, "subscribers"), {
-        name,
-        email,
+        name: name.trim(),
+        email: email.trim().toLowerCase(),
         timestamp: new Date(),
       });
-      setSuccessMessage("Thank you for subscribing!");
+      setSuccessMessage("✅ Thank you for subscribing!");
       setName("");
       setEmail("");
     } catch (error) {
@@ -63,13 +70,26 @@ const Subscriber = () => {
     }
   };
 
-  if (!content) return <div>Loading...</div>;
+  // 🔹 Skeleton Loader
+  if (loading) {
+    return (
+      <div className="flex flex-col lg:flex-row h-auto lg:h-[360px] lg:gap-0 animate-pulse">
+        <div className="flex-1 p-5 bg-gradient-to-l from-sky-500 to-indigo-500 mx-[-2rem]">
+          <div className="h-6 bg-white/40 w-3/4 rounded mb-4 mx-auto"></div>
+          <div className="h-10 w-64 bg-white/40 rounded-full mx-auto"></div>
+        </div>
+        <div className="hidden lg:block flex-1 bg-gray-200"></div>
+      </div>
+    );
+  }
+
+  if (!content) return null;
 
   return (
     <div className="flex flex-col lg:flex-row h-auto lg:h-[360px] lg:gap-0">
       {/* Form Section */}
       <div className="flex-1 content-center p-5 bg-gradient-to-l from-sky-500 to-indigo-500 mx-[-2rem] sm:mx-[-2rem] lg:mx-0">
-        <h1 className="text-center text-white text-xl sm:text-2xl lg:text-[35px] mx-auto font-sans leading-6 pt-4 sm:pt-7 lg:leading-8 lg:w-[550px] pb-4 lg:pb-7 font-medium m-0">
+        <h1 className="text-center text-white text-xl sm:text-2xl lg:text-[35px] mx-auto font-sans leading-6 pt-4 sm:pt-7 lg:leading-8 lg:w-[550px] pb-4 lg:pb-7 font-medium">
           {content.heading}
         </h1>
         <form
@@ -81,6 +101,8 @@ const Subscriber = () => {
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
+              aria-label="Name"
+              required
               className={`w-full sm:flex-1 rounded-full bg-white px-5 py-2 font-thin text-sm focus:outline-none ${
                 errors.name ? "border border-red-500" : ""
               }`}
@@ -90,6 +112,8 @@ const Subscriber = () => {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              aria-label="Email"
+              required
               className={`w-full sm:flex-1 rounded-full bg-white px-5 py-2 font-thin text-sm focus:outline-none ${
                 errors.email ? "border border-red-500" : ""
               }`}
@@ -103,6 +127,8 @@ const Subscriber = () => {
           >
             {isSubmitting ? "Subscribing..." : content.buttonText}
           </button>
+          {errors.name && <p className="text-red-500 text-sm mt-2">{errors.name}</p>}
+          {errors.email && <p className="text-red-500 text-sm mt-2">{errors.email}</p>}
           {errors.general && (
             <p className="text-red-500 text-sm mt-2">{errors.general}</p>
           )}

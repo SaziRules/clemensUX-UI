@@ -5,22 +5,40 @@ import Features from "@/components/Features";
 import Subscriber from "@/components/Subscriber";
 import HardProducts from "@/components/HardProducts";
 import { getAboutSections } from "@/sanity/queries/about";
+import { PortableText } from "@portabletext/react";
+import { ptComponents } from "@/sanity/lib/portableText";
 
 export default function AboutPage() {
   const [sections, setSections] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchSections() {
-      const data = await getAboutSections();
-      setSections(data);
+      try {
+        const data = await getAboutSections();
+        setSections(data);
+      } catch (err) {
+        console.error("Error fetching About sections:", err);
+      } finally {
+        setLoading(false);
+      }
     }
     fetchSections();
   }, []);
 
-  if (!sections.length) return <div className="p-10">Loading...</div>;
+  if (loading) {
+    return (
+      <main className="max-w-7xl mx-auto px-8 pt-[5%] sm:px-16 md:px-0 animate-pulse">
+        <section className="flex flex-col gap-3 md:flex-row">
+          <div className="flex-1 h-[250px] bg-gray-300 rounded-md"></div>
+          <div className="flex-1 h-[250px] bg-gray-300 rounded-md"></div>
+        </section>
+      </main>
+    );
+  }
 
   return (
-    <main className="max-w-7xl mx-auto px-8 pt-[5%] sm:px-16 md:px-0 ">
+    <main className="max-w-7xl mx-auto px-8 pt-[5%] sm:px-16 md:px-0">
 
       {/* Top Two Sections (About + Promise) */}
       <section className="flex w-full flex-col gap-3 md:flex-row md:items-stretch">
@@ -33,15 +51,19 @@ export default function AboutPage() {
                 : "bg-gradient-to-r from-sky-500 to-indigo-500 md:pl-10"
             }`}
           >
-            <h1 className="md:text-6xl font-bold text-white pb-4">
+            <h2 className="md:text-6xl font-bold text-white pb-4">
               {sec.title}
-            </h1>
+            </h2>
             {sec.subtitle && (
-              <h2 className="md:text-3xl font-semibold text-white pb-3">
+              <h3 className="md:text-3xl font-semibold text-white pb-3">
                 {sec.subtitle}
-              </h2>
+              </h3>
             )}
-            <p className="font-light text-white">{sec.body}</p>
+            {Array.isArray(sec.body) ? (
+              <PortableText value={sec.body} components={ptComponents} />
+            ) : (
+              <p className="font-light text-white">{sec.body}</p>
+            )}
           </div>
         ))}
       </section>
@@ -70,7 +92,11 @@ export default function AboutPage() {
                 {sec.subtitle}
               </h3>
             )}
-            <p className="font-light text-white">{sec.body}</p>
+            {Array.isArray(sec.body) ? (
+              <PortableText value={sec.body} components={ptComponents} />
+            ) : (
+              <p className="font-light text-white">{sec.body}</p>
+            )}
           </div>
         ))}
       </section>

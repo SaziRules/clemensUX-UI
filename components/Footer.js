@@ -3,11 +3,21 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import { usePathname } from "next/navigation";
+import {
+  FaFacebookF,
+  FaTwitter,
+  FaInstagram,
+  FaLinkedinIn,
+} from "react-icons/fa";
 import { getFooterData } from "@/sanity/queries/footer";
 
 export default function Footer() {
   const [footerData, setFooterData] = useState(null);
+  const pathname = usePathname();
+
+  // 🔹 Hide Footer inside Sanity Studio
+  if (pathname?.startsWith("/studio")) return null;
 
   useEffect(() => {
     async function fetchData() {
@@ -17,8 +27,21 @@ export default function Footer() {
     fetchData();
   }, []);
 
-  if (!footerData) return null;
+  // 🔹 Skeleton Loader
+  if (!footerData) {
+    return (
+      <footer className="w-full bg-gradient-to-l from-sky-500 to-indigo-500 text-white py-10 animate-pulse">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8 pb-6">
+          <div className="h-8 w-24 bg-white/40 rounded mb-4"></div>
+          <div className="h-5 w-32 bg-white/40 rounded"></div>
+          <div className="h-5 w-32 bg-white/40 rounded"></div>
+          <div className="h-5 w-32 bg-white/40 rounded"></div>
+        </div>
+      </footer>
+    );
+  }
 
+  // 🔹 Actual Footer
   return (
     <footer className="w-full bg-gradient-to-l from-sky-500 to-indigo-500 text-white py-10">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8 pb-6 border-b border-white/20">
@@ -55,7 +78,7 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* More Links (files / external) */}
+        {/* More Links */}
         <div>
           <h3 className="font-bold text-lg mb-3">More</h3>
           <ul className="space-y-2">
@@ -66,6 +89,7 @@ export default function Footer() {
                   <Link
                     href={href}
                     target="_blank"
+                    rel="noopener noreferrer"
                     className="hover:underline font-light text-[14px]"
                   >
                     {link.name}
@@ -76,7 +100,7 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Contact & Social Media */}
+        {/* Contact & Social */}
         <div>
           <h3 className="font-bold text-lg mb-3">Contact</h3>
           <p>
@@ -100,25 +124,50 @@ export default function Footer() {
           <p className="pt-3 font-light text-[14px] whitespace-pre-line">
             {footerData.address}
           </p>
+
           <div className="flex space-x-4 mt-3">
             {footerData.social?.facebook && (
-              <a href={footerData.social.facebook} target="_blank" className="hover:text-gray-200">
+              <a
+                href={footerData.social.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-gray-200"
+              >
                 <FaFacebookF size={20} />
+                <span className="sr-only">Facebook</span>
               </a>
             )}
             {footerData.social?.twitter && (
-              <a href={footerData.social.twitter} target="_blank" className="hover:text-gray-200">
+              <a
+                href={footerData.social.twitter}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-gray-200"
+              >
                 <FaTwitter size={20} />
+                <span className="sr-only">Twitter</span>
               </a>
             )}
             {footerData.social?.instagram && (
-              <a href={footerData.social.instagram} target="_blank" className="hover:text-gray-200">
+              <a
+                href={footerData.social.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-gray-200"
+              >
                 <FaInstagram size={20} />
+                <span className="sr-only">Instagram</span>
               </a>
             )}
             {footerData.social?.linkedin && (
-              <a href={footerData.social.linkedin} target="_blank" className="hover:text-gray-200">
+              <a
+                href={footerData.social.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-gray-200"
+              >
                 <FaLinkedinIn size={20} />
+                <span className="sr-only">LinkedIn</span>
               </a>
             )}
           </div>
@@ -126,7 +175,16 @@ export default function Footer() {
       </div>
 
       <div className="text-center text-[14px] font-light pt-10">
-        © Copyright - {new Date().getFullYear()} Clemens | All rights reserved. Built to thrive, By <a href="https://thepitchdot.co.za" target="_blank" className="hover:underline">Move Digital</a>
+        {footerData.copyright ||
+          `© ${new Date().getFullYear()} Clemens | All rights reserved. Built to thrive, by `}
+        <a
+          href="https://thepitchdot.co.za"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:underline"
+        >
+          Move Digital
+        </a>
       </div>
     </footer>
   );

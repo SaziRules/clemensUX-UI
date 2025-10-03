@@ -6,15 +6,37 @@ import { getPromoSection } from "@/sanity/queries/promo";
 
 function Promo() {
   const [promoData, setPromoData] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     (async () => {
-      const data = await getPromoSection();
-      setPromoData(data);
+      try {
+        const data = await getPromoSection();
+        setPromoData(data);
+      } catch (err) {
+        console.error("Error fetching promo:", err);
+      } finally {
+        setLoading(false);
+      }
     })();
   }, []);
 
-  if (!promoData) return null; // 👈 prevents flicker
+  if (loading) {
+    // 🔹 Skeleton Loader
+    return (
+      <div className="flex flex-col lg:flex-row h-auto lg:h-[360px] gap-0">
+        <div className="flex-1 content-center p-5 bg-gradient-to-l from-sky-500 to-indigo-500 mx-[-2rem] lg:mx-0 animate-pulse">
+          <div className="h-8 w-3/4 bg-white/40 rounded mb-4 mx-auto"></div>
+          <div className="h-10 w-[140px] bg-white/50 rounded-full mx-auto"></div>
+        </div>
+        <div className="hidden lg:block relative flex-1 h-full p-5">
+          <div className="w-full h-full bg-gray-200 animate-pulse rounded"></div>
+        </div>
+      </div>
+    );
+  }
+
+  if (!promoData) return null;
 
   return (
     <div className="flex flex-col lg:flex-row h-auto lg:h-[360px] gap-0">
@@ -22,6 +44,7 @@ function Promo() {
         <h1 className="text-center text-white text-2xl lg:text-[35px] font-sans leading-6 pt-7 lg:leading-8 lg:w-[550px] pb-4 lg:pb-7 font-medium">
           {promoData.heading}
         </h1>
+
         {promoData.buttonText && promoData.buttonLink && (
           <a
             href={promoData.buttonLink}
@@ -41,6 +64,7 @@ function Promo() {
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             style={{ objectFit: "cover" }}
             alt="Promotion Image"
+            priority
           />
         </div>
       )}

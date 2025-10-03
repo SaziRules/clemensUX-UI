@@ -40,8 +40,8 @@
 
   "packageManager": "npm@10.9.0",
   "engines": {
-    "node": ">=18.18 <21",
-    "npm": ">=9"
+    "node": "20.x",
+    "npm": "9.x"
   }
   
 }

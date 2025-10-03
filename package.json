@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "vercel-build": "npm install --legacy-peer-deps && next build",
+    "vercel-build": "npm ci --legacy-peer-deps && next build",
     "start": "next start",
     "lint": "next lint"
   },
@@ -36,5 +36,12 @@
     "eslint-config-next": "14.2.3",
     "postcss": "8.4.38",
     "tailwindcss": "3.4.1"
+  },
+
+  "packageManager": "npm@10.9.0",
+  "engines": {
+    "node": ">=18.18 <21",
+    "npm": ">=9"
   }
+  
 }

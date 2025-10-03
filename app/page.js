@@ -1,13 +1,11 @@
 import Image from "next/image";
 import RanjeCard from "@/components/RanjeCard";
 import productHeading from '@/assets/product-heading.png';
-import BlogHeading from '@/assets/blog-heading.png'
+import BlogHeading from '@/public/blog-heading.png';
 import Promo from "@/components/Promo";
 import Doctor from "@/components/Doctor";
 import Subscriber from "@/components/Subscriber";
 import HardProducts from "@/components/HardProducts";
-import StaticBlog from "@/components/StaticBlog";
-import Articles from "@/components/Articles";
 import HardPosts from "@/components/HardPosts";
 
 

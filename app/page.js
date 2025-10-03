@@ -25,8 +25,8 @@ export default function Home() {
 
         <section className="pt-[7%]">
           <div>
-            <div className="flex items-center justify-center pb-[5%]">
-              <img src="/product-heading.png" alt="heading" />
+            <div className="flex items-center justify-center pb-[3%]">
+              <Image src="/product-heading.png" alt="heading" width={500} height={150} />
             </div>
             <HardProducts />
             </div>     
@@ -39,8 +39,8 @@ export default function Home() {
         </section>
 
         <section className="pt-[7%]">
-        <div className="flex items-center justify-center pb-[5%]">
-              <img src="/blog-heading.png" alt="heading" />
+        <div className="flex items-center justify-center pb-[3%]">
+              <Image src="/blog-heading.png" alt="heading" width={500} height={150} />
             </div>
             <HardPosts />
         </section>

@@ -1,5 +1,7 @@
+// app/tips/[slug]/page.js (adjust the folder to your route)
 import React from "react";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 import { getTipBySlug, getAllTips } from "@/sanity/queries/tip";
 import HealthTips from "@/components/HealthTips";
 
@@ -9,35 +11,49 @@ export async function generateStaticParams() {
 }
 
 export default async function TipPage({ params }) {
-  const tip = await getTipBySlug(params.slug);
+  const { slug } = await params;                // ✅ await params
+  const tip = await getTipBySlug(slug);
+  if (!tip) return notFound();
 
-  if (!tip) return <div className="p-10">Tip not found</div>;
+  // If your Sanity field can be an object, ensure we pass a string URL to <Image/>
+  const imgSrc =
+    typeof tip.mainImage === "string"
+      ? tip.mainImage
+      : typeof tip.image === "string"
+      ? tip.image
+      : undefined;
 
   return (
     <main className="max-w-7xl mx-auto px-8 pt-[5%] sm:px-16 md:px-0">
       {/* Main Image + Intro */}
       <section className="flex flex-col sm:flex-row sm:gap-5 pb-[2%] pt-7">
         <div className="flex-1 pb-5 flex items-center justify-center">
-          <Image
-            src={tip.mainImage || tip.image}
-            alt={tip.title}
-            width={500}
-            height={500}
-            className="w-full sm:w-[500px] object-center object-contain rounded-lg"
-          />
+          {imgSrc && (
+            <Image
+              src={imgSrc}
+              alt={tip.title}
+              width={800}
+              height={500}
+              className="w-full sm:w-[800px] object-center object-contain rounded-lg"
+              priority
+            />
+          )}
         </div>
-        <div className="flex-1 text-left sm:pl-8 lg:ml-[-80px] sm:pr-8 text-[#2C2E74]">
+        <div className="flex-1 text-left sm:pl-2 lg:ml-[10px] sm:pr-8 text-[#2C2E74]">
           <h1 className="font-bold text-2xl sm:text-3xl md:text-5xl mb-3">
             {tip.title}
           </h1>
-          {tip.excerpt && <p className="italic mb-3">{tip.excerpt}</p>}
-          <p className="text-sm font-bold">
-            Author: <span className="font-normal">{tip.author}</span>
-          </p>
+          <Image src="/tick.png" alt="tick" width={100} height={25} className="inline-block mr-2 mb-1" />
+          {tip.excerpt && <p className=" mb-3">{tip.excerpt}</p>}
+          {tip.author && (
+            <p className="text-sm font-bold">
+              Author: <span className="font-normal">{tip.author}</span>
+            </p>
+          )}
         </div>
       </section>
 
-      {/* ✅ Body Section with Paragraph Splits */}
+      {/* Body */}
       {tip.body && (
         <section className="pb-[3%]">
           <h2 className="text-2xl md:text-3xl font-semibold text-[#2C2E74] mb-4">
@@ -45,12 +61,9 @@ export default async function TipPage({ params }) {
           </h2>
           <div className="space-y-4">
             {tip.body
-              .split(/\n\s*\n/) // split on double line breaks
+              .split(/\n\s*\n/)
               .map((para, index) => (
-                <p
-                  key={index}
-                  className="text-[#2C2E74] leading-relaxed text-base"
-                >
+                <p key={index} className="text-[#2C2E74] leading-relaxed text-base">
                   {para.trim()}
                 </p>
               ))}

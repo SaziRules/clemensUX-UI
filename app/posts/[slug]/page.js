@@ -1,5 +1,7 @@
+// app/posts/[slug]/page.js
 import React from "react";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 import { PortableText } from "@portabletext/react";
 import { getPostBySlug, getAllPosts } from "@/sanity/queries/post";
 import HardPosts from "@/components/HardPosts";
@@ -11,16 +13,23 @@ export async function generateStaticParams() {
   return posts.map((p) => ({ slug: p.slug }));
 }
 
-export default async function PostPage({ params }) {
-  const post = await getPostBySlug(params.slug);
-  const related = await getAllPosts();
+// (optional) if you also define metadata, remember to await params there too
+// export async function generateMetadata({ params }) {
+//   const { slug } = await params;
+//   const post = await getPostBySlug(slug);
+//   return { title: post?.title ?? "Post" };
+// }
 
-  if (!post) {
-    return <div className="p-10">Post not found. Please check the slug.</div>;
-  }
+export default async function PostPage({ params }) {
+  const { slug } = await params;                // 👈 await params
+  const post = await getPostBySlug(slug);
+  if (!post) return notFound();
+
+  const related = (await getAllPosts()).filter((p) => p.slug !== slug).slice(0, 4);
 
   return (
     <main className="max-w-7xl mx-auto px-8 sm:px-16 md:px-0 pt-[5%]">
+      {/* Hero */}
       <section className="flex flex-col sm:flex-row sm:gap-5 pb-[3%] pt-7">
         <div className="flex-1 pb-5 items-center sm:items-start sm:justify-center">
           {post.mainImage && (
@@ -30,6 +39,7 @@ export default async function PostPage({ params }) {
               width={500}
               height={500}
               className="w-full sm:w-[500px] object-center object-contain rounded-lg"
+              priority
             />
           )}
         </div>
@@ -65,13 +75,12 @@ export default async function PostPage({ params }) {
 
       <hr className="h-px my-8 bg-gray-200 border-0" />
 
+      {/* Related */}
       <section className="pt-[3%]">
         <h3 className="md:pl-10 pl-3 pb-4 md:text-4xl text-2xl text-[#2C2E74] font-bold">
           You may also like
         </h3>
-        <HardPosts
-          posts={related.filter((p) => p.slug !== post.slug).slice(0, 4)}
-        />
+        <HardPosts posts={related} />
       </section>
     </main>
   );

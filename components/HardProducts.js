@@ -4,7 +4,6 @@ import React, { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import ratingImage from "../public/rating.svg";
 import { getAllProducts } from "@/sanity/queries/products";
 import { PortableText } from "@portabletext/react";
 import { ptComponents } from "@/sanity/lib/portableText";
@@ -89,7 +88,7 @@ const HardProducts = () => {
 
             {/* Rating Button */}
             <button aria-label="View product rating">
-              <Image src={ratingImage} alt="Rating" width={56} height={56} />
+              <Image src="/rating.svg" alt="Rating" width={56} height={56} />
             </button>
           </div>
         ))}

@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
-import tick from '@/assets/tick.png'
 
 function Articles() {
   const [articles, setArticles] = useState([])
@@ -50,7 +49,7 @@ function ArticleCard({ article }) {
       <h3 className='text-[#2C2E74] text-[20px] font-normal leading-tight mb-2 line-clamp-2 h-[50px]'>{article.title}</h3>
       <p className='text-[#2C2E74] text-[14px] font-thin leading-5 mb-4 line-clamp-3 h-[60px]'>{article.description}</p>
       <button className='mt-auto'>
-        <Image src={tick} alt='tick' width={56} height={56} />
+        <Image src="/tick.png" alt='tick' width={56} height={56} />
       </button>
     </div>
   )

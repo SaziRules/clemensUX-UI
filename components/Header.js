@@ -7,7 +7,6 @@ import {
   UserCircleIcon,
   GlobeAltIcon,
 } from "@heroicons/react/solid";
-import logo from '@/public/logo.png';
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -35,7 +34,7 @@ function Header() {
         className="relative flex items-center mt-[-20px] mb-[-60px] cursor-pointer my-auto"
       >
         <Image
-          src={logo}
+          src="/logo.png"
           alt="logo"
           width={130}
           height={150}

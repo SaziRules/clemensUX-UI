@@ -72,6 +72,7 @@ const HardPosts = ({ posts: initialPosts }) => {
               <p className="text-[#2C2E74] text-[14px] font-extralight w-[295px] leading-5 line-clamp-2">
                 {post.excerpt}
               </p>
+              
             )}
           </div>
         ))}

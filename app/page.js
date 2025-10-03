@@ -1,7 +1,5 @@
 import Image from "next/image";
 import RanjeCard from "@/components/RanjeCard";
-import productHeading from '@/public/product-heading.png'; // PUSH THIS TO THE MAIN BRANCH
-import BlogHeading from '@/public/blog-heading.png';
 import Promo from "@/components/Promo";
 import Doctor from "@/components/Doctor";
 import Subscriber from "@/components/Subscriber";
@@ -28,7 +26,7 @@ export default function Home() {
         <section className="pt-[7%]">
           <div>
             <div className="flex items-center justify-center pb-[5%]">
-              <Image src={productHeading} alt="heading" />
+              <img src="/product-heading.png" alt="heading" />
             </div>
             <HardProducts />
             </div>     
@@ -42,7 +40,7 @@ export default function Home() {
 
         <section className="pt-[7%]">
         <div className="flex items-center justify-center pb-[5%]">
-              <Image src={BlogHeading} alt="Heading" />
+              <img src="/blog-heading.png" alt="heading" />
             </div>
             <HardPosts />
         </section>

@@ -3,7 +3,6 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import ratingImage from "../public/tick.png";
 import { getAllTips } from "@/sanity/queries/tip";
 
 const HealthTips = () => {
@@ -51,7 +50,7 @@ const HealthTips = () => {
             </h3>
             
             <button aria-label="View tip rating">
-              <Image src={ratingImage} alt="Rating" width={56} height={56} />
+              <Image src="/tick.png" alt="Rating" width={56} height={56} />
             </button>
           </div>
         ))}

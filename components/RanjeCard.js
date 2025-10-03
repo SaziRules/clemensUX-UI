@@ -78,7 +78,7 @@ export default function RanjeCard() {
                 {range.description}
               </p>
               <button className="mt-3">
-                <Image src="/tick.png" alt="Tick" width={20} height={20} />
+                <Image src="/tick.png" alt="Tick" width={56} height={56} />
               </button>
             </div>
           </Link>

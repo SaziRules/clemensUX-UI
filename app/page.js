@@ -1,6 +1,6 @@
 import Image from "next/image";
 import RanjeCard from "@/components/RanjeCard";
-import productHeading from '@/assets/product-heading.png';
+import productHeading from '@/assets/product-heading.png'; // PUSH THIS TO THE MAIN BRANCH
 import BlogHeading from '@/public/blog-heading.png';
 import Promo from "@/components/Promo";
 import Doctor from "@/components/Doctor";

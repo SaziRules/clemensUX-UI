@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaTiktok } from "react-icons/fa";
 import { getFooterData } from "@/sanity/queries/footer";
 
 export default function Footer() {
@@ -58,11 +58,11 @@ export default function Footer() {
             <Image
               src={footerData.logoUrl}
               alt={footerData.logoAlt || "Footer Logo"}
-              width={100}
-              height={50}
+              width={300}
+              height={300}
             />
           )}
-          <p className="text-[14px] font-light pt-5 whitespace-pre-line">
+          <p className="text-[14px] font-light whitespace-pre-line">
             {footerData.companyText}
           </p>
         </div>
@@ -159,6 +159,16 @@ export default function Footer() {
                 className="hover:text-gray-200"
               >
                 <FaInstagram size={20} />
+              </a>
+            )}
+            {footerData.social?.tiktok && (
+              <a
+                href={footerData.social.tiktok}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-gray-200"
+              >
+                <FaTiktok size={20} />
               </a>
             )}
             {footerData.social?.linkedin && (

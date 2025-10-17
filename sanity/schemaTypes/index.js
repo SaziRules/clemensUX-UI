@@ -10,7 +10,8 @@ import subscriber from "./subscriber";
 import contactForm from "./contactForm";
 import doctorSection from "./doctorSection";
 import promoSection from "./promoSection";
+import storePartners from "./storePartners";
 
 export const schema = {
-  types: [aboutSection, product, post, tip, feature, range, promoSection, doctorSection, contact, subscriber, contactForm, footer],
+  types: [aboutSection, product, post, tip, storePartners, feature, range, promoSection, doctorSection, contact, subscriber, contactForm, footer],
 }

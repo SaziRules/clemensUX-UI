@@ -57,8 +57,8 @@ export default function ProductPage({ params }) {
           <h1 className="font-bold text-2xl sm:text-3xl md:text-5xl text-[#2C2E74] mb-3">
             {product.name}
           </h1>
-          <p className="text-[#2C2E74] mb-4">{product.summary}</p>
-          <p>{product.description}</p>
+          <p className="text-[#2C2E74] mb-8">{product.summary}</p>
+          <p className="mb-8">{product.description}</p>
 
           {/* Sizes */}
           <div className="flex gap-2 pt-3 pb-5">
@@ -105,7 +105,7 @@ export default function ProductPage({ params }) {
             </Accordion>
           </div>
 
-          {/* Buttons */}
+          {/* Buttons 
           <div className="flex gap-x-2 pt-4">
             <button
               onClick={() => (window.location.href = "/stores")}
@@ -129,7 +129,7 @@ export default function ProductPage({ params }) {
                 <path d="M12 16a1 1 0 0 0 .707-.293l4-4a1 1 0 0 0-1.414-1.414L13 12.586V4a1 1 0 1 0-2 0v8.586L8.707 10.293a1 1 0 0 0-1.414 1.414l4 4A1 1 0 0 0 12 16ZM20 18H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2Z" />
               </svg>
             </a>
-          </div>
+          </div>*/}
         </div>
       </section>
 

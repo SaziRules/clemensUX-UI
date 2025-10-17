@@ -104,10 +104,10 @@ const HardProducts = () => {
                   )}
                 </p>
 
-                {/* Rating Button */}
+                {/* Rating Button 
                 <button aria-label="View product rating">
                   <Image src="/rating.svg" alt="Rating" width={56} height={56} />
-                </button>
+                </button>*/}
               </div>
             ))}
       </div>

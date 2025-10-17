@@ -71,7 +71,9 @@ export default defineType({
         { name: "facebook", type: "url", title: "Facebook" },
         { name: "twitter", type: "url", title: "Twitter" },
         { name: "instagram", type: "url", title: "Instagram" },
+        { name: "tiktok", type: "url", title: "TikTok" },
         { name: "linkedin", type: "url", title: "LinkedIn" },
+        
       ],
     }),
   ],

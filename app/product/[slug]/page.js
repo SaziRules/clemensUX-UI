@@ -134,10 +134,11 @@ export default function ProductPage({ params }) {
       </section>
 
       <hr className="h-px my-8 bg-gray-100 border-0 dark:bg-gray-100" />
-
+      {/* How To Section 
       <section className="py-[2%]">
         <HowTo />
       </section>
+      */}
 
       <section className="pt-[3%]">
         <h3 className="md:pl-10 pl-3 pb-4 md:text-4xl text-2xl text-[#2C2E74] font-bold">
